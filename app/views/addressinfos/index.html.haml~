@@ -1,0 +1,35 @@
+%h1 Listing addressinfos
+
+%table
+  %thead
+    %tr
+      %th Address 1
+      %th Address 2
+      %th Village
+      %th Taluka
+      %th City
+      %th Pin
+      %th State
+      %th Member
+      %th
+      %th
+      %th
+
+  %tbody
+    - @addressinfos.each do |addressinfo|
+      %tr
+        %td= addressinfo.address_1
+        %td= addressinfo.address_2
+        %td= addressinfo.village
+        %td= addressinfo.taluka
+        %td= addressinfo.city
+        %td= addressinfo.pin
+        %td= addressinfo.state
+        %td= addressinfo.member
+        %td= link_to 'Show', addressinfo
+        %td= link_to 'Edit', edit_addressinfo_path(addressinfo)
+        %td= link_to 'Destroy', addressinfo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Addressinfo', new_addressinfo_path

@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Address 1:
+  = @addressinfo.address_1
+%p
+  %b Address 2:
+  = @addressinfo.address_2
+%p
+  %b Village:
+  = @addressinfo.village
+%p
+  %b Taluka:
+  = @addressinfo.taluka
+%p
+  %b City:
+  = @addressinfo.city
+%p
+  %b Pin:
+  = @addressinfo.pin
+%p
+  %b State:
+  = @addressinfo.state
+%p
+  %b Member:
+  = @addressinfo.member
+
+= link_to 'Edit', edit_addressinfo_path(@addressinfo)
+\|
+= link_to 'Back', addressinfos_path

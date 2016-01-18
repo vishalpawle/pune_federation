@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Type id proup:
+  = @documentinfo.type_id_proup
+%p
+  %b Id no:
+  = @documentinfo.id_no
+%p
+  %b Member:
+  = @documentinfo.member
+
+= link_to 'Edit', edit_documentinfo_path(@documentinfo)
+\|
+= link_to 'Back', documentinfos_path

@@ -1,0 +1,12 @@
+%h1 Suspend / make invalid this member:
+%strong Name of the member: #{@member.personalinfo.first_name.capitalize + ' ' + @member.personalinfo.last_name.capitalize}
+%br
+%strong Membership no. #{@member.membership_no}
+%br
+= simple_form_for suspend_path, method: :put do |f|
+  %div{"role" => "form"}
+    .form-inputs
+      = text_area_tag 'suspend_remarks'
+    .form-action
+      = submit_tag "Suspend", :data => {:confirm => "Please note that, If you suspend this member, he / her will not avail any facility from NFBM. Still do you wish to continue?" }
+      = link_to "Back", members_path

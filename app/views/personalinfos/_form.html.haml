@@ -1,0 +1,13 @@
+= simple_form_for ([@member, @personalinfo]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :type_human, :collection => ['Mr.', 'Mrs'], :prompt => "Select You are", :label => 'you:'
+    = f.input :first_name, :input_html => {"aria-required" => "true"}, :hint => "Only letters are allowed"
+    = f.input :middle_name, :input_html => {"role" => "textbox"}, :hint => "Only letters are allowed"
+    = f.input :last_name, :input_html => {"aria-required" => "true"}, :hint => "Only letters are allowed"
+    = f.input :date_of_birth, as: :string, input_html:  {type: :date,  :value => Time.now.to_date.to_s, order:  [:day, :month, :year], "aria-required" => "true"}, :hint => "Date should be in DD/MM/YYYY format"
+    = f.input :gender, collection: ['Male', 'female', 'other'], as: :radio_buttons
+    = f.input :occupation, :collection => ['Employed', 'Self employed', 'Unemployed'], :prompt => 'Select Occupation'
+  .form-action
+    = f.submit "Next"

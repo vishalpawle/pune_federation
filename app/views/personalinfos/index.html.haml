@@ -1,0 +1,35 @@
+%h1 Listing personalinfos
+
+%table
+  %thead
+    %tr
+      %th Type human
+      %th First name
+      %th Middle name
+      %th Last name
+      %th Date of birth
+      %th Gender
+      %th Occupation
+      %th Member
+      %th
+      %th
+      %th
+
+  %tbody
+    - @personalinfos.each do |personalinfo|
+      %tr
+        %td= personalinfo.type_human
+        %td= personalinfo.first_name
+        %td= personalinfo.middle_name
+        %td= personalinfo.last_name
+        %td= personalinfo.date_of_birth
+        %td= personalinfo.gender
+        %td= personalinfo.occupation
+        %td= personalinfo.member
+        %td= link_to 'Show', personalinfo
+        %td= link_to 'Edit', edit_personalinfo_path(personalinfo)
+        %td= link_to 'Destroy', personalinfo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Personalinfo', new_member_personalinfo_path

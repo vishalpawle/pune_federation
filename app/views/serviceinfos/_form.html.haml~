@@ -1,0 +1,17 @@
+= simple_form_for([@member, @serviceinfo]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :member_braille_books_circulating_library
+    = f.input :self_employment_aid
+    = f.input :scholarship_student_aid_scheme
+    = f.input :member_of_braille_jagriti_magazine
+    = f.input :placement_services
+    = f.input :medical_aid
+    = f.input :counselling_services
+    = f.input :any_others
+    = f.input :member_id, :input_html => {:value => @member.id}
+
+
+  .form-actions
+    = f.button :submit "Next"

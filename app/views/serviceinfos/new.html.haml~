@@ -1,0 +1,5 @@
+%h1 New serviceinfo
+
+= render 'form'
+
+= link_to 'Back', member_serviceinfos_path

@@ -1,0 +1,15 @@
+%ul
+  - if user_signed_in?
+    %li= link_to 'sign out', destroy_user_session_path, :method => :delete
+
+  - else
+    %li= link_to "Take online membership", tirmsconditions_path
+    %li= link_to "Know your membership status", status_path
+    %li= link_to "Login", new_session_path
+  - if user_signed_in? && current_user.role == 'admin'
+    %li= link_to 'New Activity', new_activity_path
+  - else
+    %li= link_to "Latest  activities", activities_path
+  %li= link_to "View our anual activities", anulshow_path
+  %li= link_to 'Scribe / writers', scriberequests_path
+

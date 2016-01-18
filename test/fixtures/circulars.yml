@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  circular_for: MyString
+  circular_attachment: MyString
+  circular_discription: MyString
+
+two:
+  circular_for: MyString
+  circular_attachment: MyString
+  circular_discription: MyString

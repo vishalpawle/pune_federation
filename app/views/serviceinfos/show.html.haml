@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Member braille books circulating library:
+  = @serviceinfo.member_braille_books_circulating_library
+%p
+  %b Self employment aid:
+  = @serviceinfo.self_employment_aid
+%p
+  %b Scholarship student aid scheme:
+  = @serviceinfo.scholarship_student_aid_scheme
+%p
+  %b Member of braille jagriti magazine:
+  = @serviceinfo.member_of_braille_jagriti_magazine
+%p
+  %b Placement services:
+  = @serviceinfo.placement_services
+%p
+  %b Medical aid:
+  = @serviceinfo.medical_aid
+%p
+  %b Counselling services:
+  = @serviceinfo.counselling_services
+%p
+  %b Any others:
+  = @serviceinfo.any_others
+%p
+  %b Member:
+  = @serviceinfo.member
+
+= link_to 'Edit', edit_serviceinfo_path(@serviceinfo)
+\|
+= link_to 'Back', serviceinfos_path

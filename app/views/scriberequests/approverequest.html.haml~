@@ -1,0 +1,16 @@
+%h1 Approve scribe request page
+= simple_form_for approverequest_path, method: :put do |f|
+  %div{"role" => "form"}
+    = label_tag "Scribe first name"
+    = text_field_tag 'scribe_first_name'
+    = label_tag "Scribe last name"
+    = text_field_tag 'scribe_last_name'
+    = label_tag "Scribe email"
+    = text_field_tag 'scribe_email'
+    = label_tag 'Scribe mobile'
+    = text_field_tag 'scribe_mobile'
+    .form-action
+      = submit_tag "Approve scribe request"
+    = link_to "Back", scriberequests_path
+
+

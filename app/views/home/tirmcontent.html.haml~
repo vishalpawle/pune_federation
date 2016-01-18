@@ -1,0 +1,8 @@
+%h1 Generate Tirms and conditions page for membership form:
+= simple_form_for tirmcontent_path, method: :put do |f|
+  .form-input
+    = label_tag "Tirms and conditions content"
+    = cktext_area_tag "tirms"
+  %br
+  .form-action
+    =submit_tag "Save Data"

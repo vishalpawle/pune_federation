@@ -1,0 +1,18 @@
+%h1 Uploaded circular's details:
+%br
+
+%strong
+  = @circular.circular_for
+%br
+\|
+%br
+%strong
+  = @circular.circular_discription
+%br
+\|
+%br
+%br
+\|
+%br
+\|
+= link_to 'Back', circulars_path

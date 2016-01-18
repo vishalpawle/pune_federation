@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  have_you_disability: MyString
+  type_disability: MyString
+  percentage_disability: 1
+  since_age: 1
+  disability_reason: MyText
+  member_id: 
+
+two:
+  have_you_disability: MyString
+  type_disability: MyString
+  percentage_disability: 1
+  since_age: 1
+  disability_reason: MyText
+  member_id: 

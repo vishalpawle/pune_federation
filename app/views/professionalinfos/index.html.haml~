@@ -1,0 +1,53 @@
+%h1 Listing professionalinfos
+
+%table
+  %thead
+    %tr
+      %th Standard passed
+      %th Professional qualification
+      %th Es address 1
+      %th Es address 2
+      %th Es city
+      %th Es pin
+      %th Es state
+      %th Es tell
+      %th Es email
+      %th Designation
+      %th Department
+      %th Occupation details
+      %th Annual income
+      %th Unemployed registered details
+      %th Unemployed registration no
+      %th Employment registration date
+      %th Member
+      %th
+      %th
+      %th
+
+  %tbody
+    - @professionalinfos.each do |professionalinfo|
+      %tr
+        %td= professionalinfo.standard_passed
+        %td= professionalinfo.professional_Qualification
+        %td= professionalinfo.es_address_1
+        %td= professionalinfo.es_address_2
+        %td= professionalinfo.es_city
+        %td= professionalinfo.es_pin
+        %td= professionalinfo.es_state
+        %td= professionalinfo.es_tell
+        %td= professionalinfo.es_email
+        %td= professionalinfo.designation
+        %td= professionalinfo.department
+        %td= professionalinfo.occupation_details
+        %td= professionalinfo.annual_income
+        %td= professionalinfo.unemployed_registered_details
+        %td= professionalinfo.unemployed_registration_no
+        %td= professionalinfo.employment_registration_date
+        %td= professionalinfo.member
+        %td= link_to 'Show', professionalinfo
+        %td= link_to 'Edit', edit_professionalinfo_path(professionalinfo)
+        %td= link_to 'Destroy', professionalinfo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Professionalinfo', new_professionalinfo_path

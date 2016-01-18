@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  introduces_by: MyString
+  member_submited_form_date: 2015-11-01
+  f_place: MyString
+  form_details: false
+  member_id: 
+
+two:
+  introduces_by: MyString
+  member_submited_form_date: 2015-11-01
+  f_place: MyString
+  form_details: false
+  member_id: 

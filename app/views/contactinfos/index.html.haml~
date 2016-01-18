@@ -1,0 +1,31 @@
+%h1 Listing contactinfos
+
+%table
+  %thead
+    %tr
+      %th Email
+      %th Fax
+      %th Contact no
+      %th Mobile no
+      %th Mobile 2
+      %th Member
+      %th
+      %th
+      %th
+
+  %tbody
+    - @contactinfos.each do |contactinfo|
+      %tr
+        %td= contactinfo.email
+        %td= contactinfo.fax
+        %td= contactinfo.contact_no
+        %td= contactinfo.mobile_no
+        %td= contactinfo.mobile_2
+        %td= contactinfo.member
+        %td= link_to 'Show', contactinfo
+        %td= link_to 'Edit', edit_contactinfo_path(contactinfo)
+        %td= link_to 'Destroy', contactinfo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Contactinfo', new_contactinfo_path

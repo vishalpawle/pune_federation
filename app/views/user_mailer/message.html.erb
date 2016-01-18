@@ -1,0 +1,26 @@
+<strong> Hi Admin, </strong>
+<br/>
+<br/>
+<p>
+This is NFBM pune team!
+<br/>
+On your website (http://www.nfbmpune.org), a guest user sent the message for you. Please find the details of this message:
+<br/>
+<b> Name of the user: <%= @message.name %> </b>
+<br/>
+<b> Mobile of the user: <%= @message.phone %> </b>
+<br/>
+<b> Email of the user: <%= @message.email %>
+<br/>
+<b> Subject: <%= @message.subject %>
+<br/>
+
+</p>
+<h2> Message body </h2>
+<p>
+<%= raw @message.message_content %>
+</p>
+<br/>
+<strong> Regards, <br/> Pune Blind Federation Team </strong>
+<br/>
+<strong> *** This email can't receive reply *** </strong>

@@ -1,0 +1,12 @@
+= simple_form_for([@member, @disabilityinfo]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :have_you_disability, :label => "Do you have Disability?", :collection => ['Yes', 'No'], as: :radio_buttons
+    = f.input :type_disability, :label => "Type of disability", :collection => ['Visually impairments', 'Hearing impairments', 'Orthopedically handicapped', 'Others'], :prompt => "Please select your disability"
+    = f.input :percentage_disability, :label => "Percentage of disability"
+    = f.input :since_age
+    = f.input :disability_reason, :input_html => {"role" => "textbox", "aria-multiline" => "true"}
+
+  .form-action
+    =f.submit "Next"

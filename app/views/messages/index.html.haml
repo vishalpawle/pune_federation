@@ -1,0 +1,29 @@
+- if user_signed_in?
+  - if current_user.role == 'admin'
+    %h1All  messages
+
+    %table.table
+      %thead
+        %tr
+          %th Name
+          %th Email
+          %th Phone
+          %th Subject
+          %th
+          %th
+          %th
+
+      %tbody
+        - @messages.each do |message|
+          %tr
+            %td= message.name
+            %td= message.email
+            %td= message.phone
+            %td= message.subject
+            %td= link_to 'Show', message
+            %td= link_to 'Edit', edit_message_path(message)
+            %td= link_to 'Destroy', message, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Home', root_path

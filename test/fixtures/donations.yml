@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  donar_name: MyString
+  donar_email: MyString
+  donar_mobile: MyString
+  to_project: MyString
+  how_did_you_find_us: MyString
+  donation_comment: MyText
+  account_flag: false
+  bank_name: MyString
+  account_no: MyString
+  ifsc_code: MyString
+  dd_name: MyString
+  followup_with_donar: MyString
+  donation_remarks: MyText
+  receive_donation: MyString
+  donation_amount: 9.99
+
+two:
+  donar_name: MyString
+  donar_email: MyString
+  donar_mobile: MyString
+  to_project: MyString
+  how_did_you_find_us: MyString
+  donation_comment: MyText
+  account_flag: false
+  bank_name: MyString
+  account_no: MyString
+  ifsc_code: MyString
+  dd_name: MyString
+  followup_with_donar: MyString
+  donation_remarks: MyText
+  receive_donation: MyString
+  donation_amount: 9.99

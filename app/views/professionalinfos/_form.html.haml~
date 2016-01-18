@@ -1,0 +1,24 @@
+= simple_form_for([@member, @professionalinfo]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :standard_passed
+    = f.input :professional_Qualification
+    = f.input :es_address_1
+    = f.input :es_address_2
+    = f.input :es_city
+    = f.input :es_pin
+    = f.input :es_state
+    = f.input :es_tell
+    = f.input :es_email
+    = f.input :designation
+    = f.input :department
+    = f.input :occupation_details
+    = f.input :annual_income
+    = f.input :unemployed_registered_details
+    = f.input :unemployed_registration_no
+
+    = f.input :member_id, :input_html => {:value => @member.id}
+
+  .form-actions
+    = f.button :submit

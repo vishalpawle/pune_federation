@@ -1,0 +1,50 @@
+%title" Listing donations"
+%h1 Listing donations
+
+%table
+  %thead
+    %tr
+      %th Donar name
+      %th Donar email
+      %th Donar mobile
+      %th To project
+      %th How did you find us
+      %th Donation comment
+      %th Account flag
+      %th Bank name
+      %th Account no
+      %th Ifsc code
+      %th Dd name
+      %th Followup with donar
+      %th Donation remarks
+      %th Receive donation
+      %th Donation amount
+      %th
+      %th
+      %th
+
+  %tbody
+    - @donations.each do |donation|
+      %tr
+        %td= donation.donar_name
+        %td= donation.donar_email
+        %td= donation.donar_mobile
+        %td= donation.to_project
+        %td= donation.how_did_you_find_us
+        %td= donation.donation_comment
+        %td= donation.account_flag
+        %td= donation.bank_name
+        %td= donation.account_no
+        %td= donation.ifsc_code
+        %td= donation.dd_name
+        %td= donation.followup_with_donar
+        %td= donation.donation_remarks
+        %td= donation.receive_donation
+        %td= donation.donation_amount
+        %td= link_to 'Show', donation
+        %td= link_to 'Edit', edit_donation_path(donation)
+        %td= link_to 'Destroy', donation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Donation', new_donation_path

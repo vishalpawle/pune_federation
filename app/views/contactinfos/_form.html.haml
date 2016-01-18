@@ -1,0 +1,11 @@
+= simple_form_for([@member, @contactinfo]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :email, :input_html => {"role" => "textbox"}
+    = f.input :fax, :input_html => {"role" => "textbox"}
+    = f.input :contact_no, :input_html => {"role" => "textbox"}, :hint => "Only numbers"
+    = f.input :mobile_no, :input_html => {"aria-required" => "true"}, :hint => "Number must start from 7 / 8 / 9"
+    = f.input :mobile_2, :input_html => {"role" => "textbox"}, :hint => "number must start from 7 / 8 / 9"
+  .form-action
+    = f.submit "Next"

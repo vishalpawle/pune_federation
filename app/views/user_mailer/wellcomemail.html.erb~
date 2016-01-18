@@ -1,0 +1,81 @@
+<b> Hi <%= @member.personalinfo.first_name.capitalize %> ,
+<br/>
+<br/>
+<p>
+Thankyou for registaring with us! Your provisional membership number is, <%= @member.membership_no %> <br/> <strong> Please submit your Valid ID proof,  address proof and prescribed fee to NFBM for becoming life- time member with us.</strong>
+<br/>
+<strong> Please note that, </strong>
+<br/>
+If you fail to submit within 7 days, your provisional  request will get Cancel automatically.<br/>
+<br/>
+</p>
+
+<p>
+<strong> Also note that, </strong>
+<b> The above mentioned documents you are able to submit between 3PM to 6PM from munday to saturday only. Their for, kindly note above timings and cooperate the same. </b>
+<br/>
+<p>
+<b> Now understand your next enrolment process: </b>
+<h2> Documents verification process: </h2>
+<p>
+You have done  online registration with us, now it is time to verify your documents. Please bring your following documents for varification process:
+%br
+<ol>
+<li>
+Disability certificate " should be issued by Civil Surgeon"
+</li>
+<li>
+ID proof wich you mentioned in the online form.
+</li>
+<li>
+Valid address proof "issued by appropriate authority."
+</li>I
+<li>
+3 Pastport size photographs.
+</li>
+<li>
+And system generated chalun.
+</li>
+</ol>
+<strong> Please keep the photo copies of all documents. </strong>
+<br/>
+Once we verifyed your documents, then you will receive confirmation from our side by email / SMS / whatsapp. Then after you can create your login password under status option wich is available on home page.
+</p>
+<b> Please note our communication details, so that, you will not find any difficulty to reaching us.
+<br/>
+Our communication details are follow:
+
+</b>
+
+
+<h3>Pradhaan office address:</h3>
+<br>
+The National Federation of the Blind, Maharashtra
+<br>
+Rachanatmak karya samiti, Gandhi Chowk, R.S. Road, Vile Parle (West), Mumbai 400056.
+<br>
+Phone:
+<a href='tel:02226140916'>022-26140916</a>
+<br>
+E-mail:
+<a href='mailto:nfbmah@gmail.com?Subject=Hello%20' target='_top'>nfbmah@gmail.com</a>
+<br>
+<h3>Address for Pune branch:</h3>
+<br>
+<i>The National Federation of the Blind, Maharashtra - pune branch</i>
+<br>
+Block B - 13 , Nehru Stadium , Swargate Pune - 411009
+<br>
+Phone:
+<a href='tel:02024445494'>020-24445494</a>
+<br>
+E-mail:
+<a href='mailto:nfbmpune15@gmail.com?Subject=Hello%20' target='_top'>nfbmpune15@gmail.com</a>
+<b>
+  Please download your chalun from our website(http://www.puneblindfederation.org), and submit to us.
+</b>
+
+<br/>
+<br/>
+<b> Regards, <br/> Pune blind federation team <br/> <br/>
+<strong> *** This is system generated email, please do not reply. </strong>

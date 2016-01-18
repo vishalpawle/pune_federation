@@ -1,0 +1,49 @@
+%h1 Listing scriberequests
+
+%table
+  %thead
+    %tr
+      %th Member name
+      %th Member email
+      %th Member mobile
+      %th Exam start date
+      %th Exam end date
+      %th Exam start time
+      %th Exam end time
+      %th Type of exam
+      %th What type of scribe member expecting
+      %th Mode of exam
+      %th Medium of exam
+      %th Request status
+      %th 
+      %th
+      %th
+      %th
+
+  %tbody
+    - @scriberequests.each do |scriberequest|
+      %tr
+        %td= scriberequest.member_name
+        %td= scriberequest.member_email
+        %td= scriberequest.member_mobile
+        %td= scriberequest.exam_start_date
+        %td= scriberequest.exam_end_date
+        %td= scriberequest.exam_start_time
+        %td= scriberequest.exam_end_time
+        %td= scriberequest.type_of_exam
+        %td= scriberequest.what_type_of_scribe
+        %td= scriberequest.mode_of_exam
+        %td= scriberequest.medium_of_exam
+        %td= scriberequest.request_status
+        - if user_signed_in?
+          - if current_user.role == 'admin'
+            - if scriberequest.request_status == nil
+              %td= link_to 'Approve request ', approverequest_path(scriberequest)
+              %td= link_to "Reject request", rejectrequest_path(scriberequest)
+        %td= link_to 'More details', scriberequest
+        %td= link_to 'Edit', edit_scriberequest_path(scriberequest)
+        %td= link_to 'Destroy', scriberequest, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Apply for scribe ', new_scriberequest_path

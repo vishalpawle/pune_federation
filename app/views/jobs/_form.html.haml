@@ -1,0 +1,13 @@
+= javascript_include_tag Ckeditor.cdn_url
+= simple_form_for(@job) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title, :label => 'Title of the employment news', :input_html => {"aria-required" => "true"}
+    = f.input :company, :label => "Company / Organisation name", :input_html => {"aria-required" => "true"}
+    = f.input :type_job, :label => "Type of job:", :collection => ['Public sector', 'Government sector', 'Private sector'], :prompt => "Please select job sector"
+    = f.input :url, :label => "Official URL", :input_html => {"aria-required" => "true"}
+    = f.input :discription, :as => :ckeditor, :input_html => {:ckeditor => {:toolbar => "mini"}}
+
+  .form-actions
+    = f.button :submit

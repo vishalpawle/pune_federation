@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Type human:
+  = @personalinfo.type_human
+%p
+  %b First name:
+  = @personalinfo.first_name
+%p
+  %b Middle name:
+  = @personalinfo.middle_name
+%p
+  %b Last name:
+  = @personalinfo.last_name
+%p
+  %b Date of birth:
+  = @personalinfo.date_of_birth
+%p
+  %b Gender:
+  = @personalinfo.gender
+%p
+  %b Occupation:
+  = @personalinfo.occupation
+%p
+  %b Member:
+  = @personalinfo.member
+
+= link_to 'Edit', edit_personalinfo_path(@personalinfo)
+\|
+= link_to 'Back', personalinfos_path

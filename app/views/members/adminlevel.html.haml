@@ -1,0 +1,59 @@
+%p#notice= notice
+%h1 Confirm the member
+= simple_form_for adminlevel_path, method: :put do |f|
+  = f.error_notification
+
+  .form-inputs
+    %p
+      %b Membership number:
+      %br
+      %b= @member.membership_no
+      %br
+      %b Name of the member:
+      %br
+      %b= @member.personalinfo.last_name.capitalize + ' ' + @member.personalinfo.first_name.capitalize + ' ' + @member.personalinfo.middle_name.capitalize
+      %br
+      %b Membership registered date:
+      %br
+      %b= @member.membership_register_date
+      %br
+      %b Membership class:
+      %br
+      %b= @member.membership_class
+      %br
+      %b Date of admission:
+      %br
+      %b= @member.date_of_admission
+      %br
+      %b Branch:
+      %br
+      %b= @member.branch
+      %br
+      %br
+      %b Receipt no:
+      %br
+      %b= @member.receipt_no
+      %br
+      %b Received membership fee from member?
+      %br
+      - if @member.fee_receive_flag == true
+        %b Yes
+        %br
+        %b Fee amount:
+        %br
+        %b= @member.fee_amt
+      - else
+        %b No
+  %h2 Action:
+  %br
+  %p
+    You have saw the application of this member, now take appropriate action on it.
+
+    Below few actions are their for you, click anyone from that witch you wish to apply for this member.
+  .form-action
+    %ul
+      %li= submit_tag 'Confirm'
+      %li= link_to "Recheck entire application", member_path(@member.id)
+      %li= link_to "Make invalid / default to this member", suspend_path(@member.id)
+      %strong Displeased with this membership application?
+      %li= link_to "Delete / Reject", tempdelete_path(@member.id),  :data => { :confirm => 'You have selected delete action!' }

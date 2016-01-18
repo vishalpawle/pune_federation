@@ -1,0 +1,27 @@
+= simple_form_for([@member, @professionalinfo]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :standard_passed, :collection => ['SSC (Class X)', 'HSC (Class XII)', 'Graduate', 'Post Graduate', 'Diploma', 'Other'], :prompt => "Please select 1"
+    = f.input :professional_Qualification, :collection => ['Doctor', 'Engineer', 'Lawyer', 'CA', 'IT', 'Professional', 'Banker', 'Consultant', 'Other'], :prompt => "Please select Professional Qualification"
+    %div#employer
+      Details of Employer (Office Address) for Individual member (If Employed / Self-Employed) or Details of Institution (If student)
+      %h2 Employer / college / institution details
+      %fieldset
+        %legend Employer / college details
+        = f.input :es_address_1, :label => "Address line one for office / college / institution"
+        = f.input :es_address_2, :label => "Address line two for office / college / institution"
+        = f.input :es_city, :label => "City"
+        = f.input :es_pin, :label => "Pin"
+        = f.input :es_state, :label => "State", :collection => CS.states(:IN).values
+        = f.input :es_tell, :label => "Office / institution phone", :hint => "Only numbers"
+        = f.input :es_email, :label => "Office / institution email"
+        = f.input :designation
+        = f.input :department
+        = f.input :occupation_details, :collection => ['Manufacturing', 'Banking/finance', 'Infrastructure', 'Telecom', 'Agriculture', 'Defense', 'Healthcare', 'Medicine', 'Administration', 'Law', 'Media', 'R&D', 'Information Technology', 'Entertainment Media', 'Political', 'Insurance', 'Construction Infrastructure Development', 'Academic Management', 'Student', 'Other'], :prompt => "Select your Occupation"
+        = f.input :annual_income, :label => "Annual Income Rs", :collection => ['0 – 50,000', '50,000 – 1,00,000', '1,00,001 – 3,00,000', '3,00,000 – 10,00,000/-', 'above 10,00,000/-']
+        = f.input :unemployed_registered_details, :label => "Have you registered under Special Employment Exchange?", :collection => ['Yes', 'No'], as: :radio_buttons
+        = f.input :unemployed_registration_no
+
+  .form-action
+    = f.submit "Next"

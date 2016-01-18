@@ -1,0 +1,13 @@
+= simple_form_for([@member, @certificateinfo]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :do_you_have_blindness, :label => "Do you have Certificate of Blindness from Civil Surgeon?",  :collection => ['Yes', 'No'], as: :radio_buttons
+    = f.input :blindness_issued_dr_name, :label => "issued by Dr", :hint => "Only letters"
+    = f.input :place
+    = f.input :certificate_no
+    = f.input :certificate_date, as: :string, input_html:  {type: :date,  :value => Time.now.to_date.to_s, order:  [:day, :month, :year], "aria-required" => "false"}, :hint => "Date should be in DD/MM/YYYY format"
+    = f.input :percent_blindness_stated
+
+  .form-action
+    =f.submit "Next"

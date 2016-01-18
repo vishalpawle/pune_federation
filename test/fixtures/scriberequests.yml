@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  member_name: MyString
+  member_email: MyString
+  member_mobile: MyString
+  exam_start_date: 2015-12-23
+  exam_end_date: 2015-12-23
+  exam_duration: 1
+  exam_start_time: 2015-12-23 10:02:53
+  exam_end_time: 2015-12-23 10:02:53
+  type_of_exam: MyString
+  what_type_of_scribe: MyString
+  medium_of_exam: MyString
+  address_1: MyString
+  address_2: MyString
+  city: MyString
+  pin: 1
+  state: MyString
+  exam_discription: MyText
+  scribe_first_name: MyString
+  scribe_last_name: MyString
+  scribe_email: MyString
+  scribe_mobile: MyString
+  rejection_reason: MyText
+  request_status: MyString
+  member_id: 
+
+two:
+  member_name: MyString
+  member_email: MyString
+  member_mobile: MyString
+  exam_start_date: 2015-12-23
+  exam_end_date: 2015-12-23
+  exam_duration: 1
+  exam_start_time: 2015-12-23 10:02:53
+  exam_end_time: 2015-12-23 10:02:53
+  type_of_exam: MyString
+  what_type_of_scribe: MyString
+  medium_of_exam: MyString
+  address_1: MyString
+  address_2: MyString
+  city: MyString
+  pin: 1
+  state: MyString
+  exam_discription: MyText
+  scribe_first_name: MyString
+  scribe_last_name: MyString
+  scribe_email: MyString
+  scribe_mobile: MyString
+  rejection_reason: MyText
+  request_status: MyString
+  member_id: 

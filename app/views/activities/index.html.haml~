@@ -1,0 +1,27 @@
+%h1 Listing activities
+
+%table
+  %thead
+    %tr
+      %th Activity title
+      %th Activity created date
+      %th
+      %th
+      %th
+
+  %tbody
+    - @activities.each do |activity|
+      %tr
+        %td= activity.activity_title
+        %td= activity.activity_created_date
+        %td= link_to 'View in details', activity
+        %td= link_to 'Edit', edit_activity_path(activity)  if user_signed_in? && current_user.role == 'admin'
+        - if user_signed_in? && current_user.role == 'admin'
+          %td= link_to 'Destroy', activity, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+- if user_signed_in? && current_user.role == 'admin'
+  = link_to 'New Activity', new_activity_path
+    - if @acti.count == 0
+      = link_to 'Generate anual activity page', anulgenerate_path

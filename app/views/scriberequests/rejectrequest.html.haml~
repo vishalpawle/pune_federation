@@ -1,0 +1,11 @@
+%h1 Rejection request page
+%br
+You are rejecting the request of #{@scriberequest.member_name.capitalize} . So that, kindly give the Appropriate and valid reason.
+= simple_form_for rejectrequest_path, :html => {'onsubmit' => 'return chkform()'}, method: :put do |f|
+  = f.error_notification
+  %div{"role" => "form"}
+    =label_tag "Rejection reason"
+    = text_area_tag 'rejection_reason'
+    .form-action
+      = submit_tag 'Reject'
+      = link_to 'Back', scriberequests_path

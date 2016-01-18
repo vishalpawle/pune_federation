@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  do_you_have_blindness: MyString
+  blindness_issued_dr_name: MyString
+  place: MyString
+  certificate_no: MyString
+  certificate_date: 2015-11-01
+  percent_blindness_stated: 1
+  do_you_know_braille: MyString
+  member_id: 
+
+two:
+  do_you_have_blindness: MyString
+  blindness_issued_dr_name: MyString
+  place: MyString
+  certificate_no: MyString
+  certificate_date: 2015-11-01
+  percent_blindness_stated: 1
+  do_you_know_braille: MyString
+  member_id: 

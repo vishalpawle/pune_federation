@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Do you have blindness:
+  = @certificateinfo.do_you_have_blindness
+%p
+  %b Blindness issued dr name:
+  = @certificateinfo.blindness_issued_dr_name
+%p
+  %b Place:
+  = @certificateinfo.place
+%p
+  %b Certificate no:
+  = @certificateinfo.certificate_no
+%p
+  %b Certificate date:
+  = @certificateinfo.certificate_date
+%p
+  %b Percent blindness stated:
+  = @certificateinfo.percent_blindness_stated
+%p
+  %b Do you know braille:
+  = @certificateinfo.do_you_know_braille
+%p
+  %b Member:
+  = @certificateinfo.member
+
+= link_to 'Edit', edit_certificateinfo_path(@certificateinfo)
+\|
+= link_to 'Back', certificateinfos_path

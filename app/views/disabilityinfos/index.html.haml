@@ -1,0 +1,31 @@
+%h1 Listing disabilityinfos
+
+%table
+  %thead
+    %tr
+      %th Have you disability
+      %th Type disability
+      %th Percentage disability
+      %th Since age
+      %th Disability reason
+      %th Member
+      %th
+      %th
+      %th
+
+  %tbody
+    - @disabilityinfos.each do |disabilityinfo|
+      %tr
+        %td= disabilityinfo.have_you_disability
+        %td= disabilityinfo.type_disability
+        %td= disabilityinfo.percentage_disability
+        %td= disabilityinfo.since_age
+        %td= disabilityinfo.disability_reason
+        %td= disabilityinfo.member
+        %td= link_to 'Show', disabilityinfo
+        %td= link_to 'Edit', edit_disabilityinfo_path(disabilityinfo)
+        %td= link_to 'Destroy', disabilityinfo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Disabilityinfo', new_disabilityinfo_path

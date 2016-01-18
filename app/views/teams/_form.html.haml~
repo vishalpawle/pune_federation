@@ -1,0 +1,11 @@
+= javascript_include_tag Ckeditor.cdn_url
+= simple_form_for(@team) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name, :label => "Please enter name of the officer / executive member", :input_html => {"aria-required" => "true"}
+    = f.input :category, :collection => ['Executive member', 'Officer'], as: :radio_buttons
+    = f.input :post, :collection =>  ['President', 'General Secretary', 'Secretary', 'Vice President', 'Adviser', 'Treasurer'], :prompt => "Please select valid title"
+    = f.input :information, :as => :ckeditor, :input_html => {:ckeditor => {:toolbar => 'mini'}}
+  .form-actions
+    = f.button :submit

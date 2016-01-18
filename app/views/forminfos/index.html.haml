@@ -1,0 +1,29 @@
+%h1 Listing forminfos
+
+%table
+  %thead
+    %tr
+      %th Introduces by
+      %th Member submited form date
+      %th F place
+      %th Form details
+      %th Member
+      %th
+      %th
+      %th
+
+  %tbody
+    - @forminfos.each do |forminfo|
+      %tr
+        %td= forminfo.introduces_by
+        %td= forminfo.member_submited_form_date
+        %td= forminfo.f_place
+        %td= forminfo.form_details
+        %td= forminfo.member
+        %td= link_to 'Show', forminfo
+        %td= link_to 'Edit', edit_forminfo_path(forminfo)
+        %td= link_to 'Destroy', forminfo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Forminfo', new_forminfo_path

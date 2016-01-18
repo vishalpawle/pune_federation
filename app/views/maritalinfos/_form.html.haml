@@ -1,0 +1,15 @@
+= simple_form_for([@member, @maritalinfo]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :marital_status, :collection => ['Married', 'Unmarried'], as: :radio_buttons
+    = f.input :wedding_anniversary_date, as: :string, input_html:  {type: :date,  :value => Time.now.to_date.to_s, order:  [:day, :month, :year], "aria-required" => "false"}, :hint => "Date should be in DD/MM/YYYY format"
+    = f.input :spouse_type, :label => "Spouse", :collection => ['Mr', 'Mrs']
+    = f.input :spouse_firstt_name, :hint => "Only letters are allowed"
+    = f.input :spouse_middle_name, :hint => "Only Letters are allowed"
+    = f.input :spouse_sur_name, :hint => "Only letters are allowed"
+    = f.input :no_of_family_members, :input_html => {"aria-required" => "true"}, :hint => "Number should be entered"
+    = f.input :kids, :label => "Number of children", :hint => "Reply should be in numarical format"
+    = f.input :parents_dependent_on_you, :label => "Parents dependent on you?", :collection => ['Yes', 'No'], as: :radio_buttons
+  .form-action
+    =f.submit "Next"

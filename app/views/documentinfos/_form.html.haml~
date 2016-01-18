@@ -1,0 +1,15 @@
+= simple_form_for([@member, @documentinfo]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    %div#idcard
+      %h2#idcard ID card details
+      %div{"aria-labelledby" => "idcard", :role => "radiogroup"}
+        = f.input :type_id_proup, :label => " Type of ID proup you are going to submit", :collection => ['PAN Card', 'Aadhar card', 'Driving licen', 'Vorter ID', 'Pastport', 'Other'], as: :radio_buttons
+        = f.input :id_no, :input_html => {"aria-required" => "true"}
+    %div#upload
+      %h3 File and signiture upload
+      = f.input :photo, as: :file
+      = f.input :signature, as: :file
+  .form-action
+    = f.submit "Next"

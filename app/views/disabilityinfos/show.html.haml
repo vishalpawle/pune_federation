@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Have you disability:
+  = @disabilityinfo.have_you_disability
+%p
+  %b Type disability:
+  = @disabilityinfo.type_disability
+%p
+  %b Percentage disability:
+  = @disabilityinfo.percentage_disability
+%p
+  %b Since age:
+  = @disabilityinfo.since_age
+%p
+  %b Disability reason:
+  = @disabilityinfo.disability_reason
+%p
+  %b Member:
+  = @disabilityinfo.member
+
+= link_to 'Edit', edit_disabilityinfo_path(@disabilityinfo)
+\|
+= link_to 'Back', disabilityinfos_path

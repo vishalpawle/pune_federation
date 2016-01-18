@@ -1,0 +1,35 @@
+%h1 Listing certificateinfos
+
+%table
+  %thead
+    %tr
+      %th Do you have blindness
+      %th Blindness issued dr name
+      %th Place
+      %th Certificate no
+      %th Certificate date
+      %th Percent blindness stated
+      %th Do you know braille
+      %th Member
+      %th
+      %th
+      %th
+
+  %tbody
+    - @certificateinfos.each do |certificateinfo|
+      %tr
+        %td= certificateinfo.do_you_have_blindness
+        %td= certificateinfo.blindness_issued_dr_name
+        %td= certificateinfo.place
+        %td= certificateinfo.certificate_no
+        %td= certificateinfo.certificate_date
+        %td= certificateinfo.percent_blindness_stated
+        %td= certificateinfo.do_you_know_braille
+        %td= certificateinfo.member
+        %td= link_to 'Show', certificateinfo
+        %td= link_to 'Edit', edit_certificateinfo_path(certificateinfo)
+        %td= link_to 'Destroy', certificateinfo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Certificateinfo', new_certificateinfo_path

@@ -1,0 +1,11 @@
+= javascript_include_tag Ckeditor.cdn_url
+
+= simple_form_for(@content) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :dream_content, :as => :ckeditor, :input_html => {:ckeditor => {'toolbar' => 'mini'}}
+    = f.input :dream, :label => "This content was for feuture dream"
+    = f.input :about_us, :as => :ckeditor, :input_html => {:ckeditor => {'toolbar' => 'mini'}}
+    = f.input :about_flag, :label => "This content was for about us page"
+  .form-action
+    = f.submit "Save content"

@@ -1,0 +1,8 @@
+= javascript_include_tag Ckeditor.cdn_url
+%h1 Generate Activity page.
+%br
+= simple_form_for anulgenerate_path, method: :post do |f|
+  .form-input
+    = cktext_area_tag 'anul'
+  .form-action
+    = f.submit :submit

@@ -1,0 +1,23 @@
+%h1 Employment main page.
+
+%table
+  %thead
+    %tr
+      %th Title of the news
+      %th
+      %th
+      %th
+
+  %tbody
+    - @jobs.each do |job|
+      %tr
+        %td= job.title
+        %td= link_to 'Read more...', job
+        - if user_signed_in?
+          - if user.role == 'admin'
+            %td= link_to 'Edit', edit_job_path(job)
+            %td= link_to 'Destroy', job, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+- if user_sined_in? && current_user.role == 'admin
+  = link_to 'New Job', new_job_path

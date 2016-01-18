@@ -1,0 +1,25 @@
+%h1 Listing documentinfos
+
+%table
+  %thead
+    %tr
+      %th Type id proup
+      %th Id no
+      %th Member
+      %th
+      %th
+      %th
+
+  %tbody
+    - @documentinfos.each do |documentinfo|
+      %tr
+        %td= documentinfo.type_id_proup
+        %td= documentinfo.id_no
+        %td= documentinfo.member
+        %td= link_to 'Show', documentinfo
+        %td= link_to 'Edit', edit_documentinfo_path(documentinfo)
+        %td= link_to 'Destroy', documentinfo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Documentinfo', new_documentinfo_path

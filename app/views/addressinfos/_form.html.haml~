@@ -1,0 +1,15 @@
+= simple_form_for([@member, @addressinfo]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :address_1
+    = f.input :address_2
+    = f.input :village
+    = f.input :taluka
+    = f.input :city
+    = f.input :pin
+    = f.input :state
+    = f.input :member_id, :input_html => {:value => @member.id}
+
+  .form-actions
+    = f.button :submit

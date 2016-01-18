@@ -1,0 +1,24 @@
+%h1 Current pannel page
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Category
+      %th
+      %th
+      %th
+
+  %tbody
+    - @teams.each do |team|
+      %tr
+        %td= team.name
+        %td= team.category
+        %td= link_to 'Show', team
+        - if user_signed_in? && current_user.role == 'admin'
+          %td= link_to 'Edit', edit_team_path(team)
+          %td= link_to 'Destroy', team, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+- if user_signed_in? && current_user.role == 'admin'
+  = link_to "Add team's info", new_team_path

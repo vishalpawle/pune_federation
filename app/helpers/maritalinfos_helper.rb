@@ -1,0 +1,2 @@
+module MaritalinfosHelper
+end

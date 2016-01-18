@@ -1,0 +1,39 @@
+%h1 Listing maritalinfos
+
+%table
+  %thead
+    %tr
+      %th Marital status
+      %th Wedding anniversary date
+      %th Spouse type
+      %th Spouse firstt name
+      %th Spouse middle name
+      %th Spouse sur name
+      %th No of family members
+      %th Kids
+      %th Parents dependent on you
+      %th Member
+      %th
+      %th
+      %th
+
+  %tbody
+    - @maritalinfos.each do |maritalinfo|
+      %tr
+        %td= maritalinfo.marital_status
+        %td= maritalinfo.wedding_anniversary_date
+        %td= maritalinfo.spouse_type
+        %td= maritalinfo.spouse_firstt_name
+        %td= maritalinfo.spouse_middle_name
+        %td= maritalinfo.spouse_sur_name
+        %td= maritalinfo.no_of_family_members
+        %td= maritalinfo.kids
+        %td= maritalinfo.parents_dependent_on_you
+        %td= maritalinfo.member
+        %td= link_to 'Show', maritalinfo
+        %td= link_to 'Edit', edit_maritalinfo_path(maritalinfo)
+        %td= link_to 'Destroy', maritalinfo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Maritalinfo', new_maritalinfo_path

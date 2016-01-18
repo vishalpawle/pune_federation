@@ -1,0 +1,10 @@
+<strong> Hi <%= @user.member.personalinfo.first_name.capitalize %>, </strong>
+<br/>
+<p>
+Your role changed by admin. Now your new role is, <b> <%= @user.role %> </b> <br/>
+Please don't make miss use of this role otherwise your membership will get destroy permanently by NFBM.
+</p>
+<strong> Regards, </strong>
+<br/>
+<strong> Pune blind federation team </strong>
+<b> *** This email can't receive reply. *** </b>

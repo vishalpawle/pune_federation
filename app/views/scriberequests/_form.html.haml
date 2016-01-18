@@ -1,0 +1,32 @@
+= simple_form_for(@scriberequest) do |f|
+  = f.error_notification
+
+  .form-inputs
+    - if user_signed_in?
+      = f.input :member_name, :input_html => {:value => current_user.member.personalinfo.first_name.capitalize + ' ' + current_user.member.personalinfo.last_name.capitalize}, :readonly => true
+      = f.input :member_email, :input_html => {:value => current_user.member.contactinfo.email}, :readonly => true
+      = f.input :member_mobile, :input_html => {:value => current_user.member.contactinfo.mobile_no}, :readonly => true
+    - else
+      = f.input :member_name, :input_html => {"aria-required" => "true"}
+      = f.input :member_email
+      = f.input :member_mobile, :input_html => {"aria-required" => "true"}
+    = f.input :exam_start_date, as: :string, input_html:  {type: :date,  :value => Time.now.to_date.to_s, order:  [:day, :month, :year], "aria-required" => "true"}, :hint => "Date should be in DD/MM/YYYY format"
+    = f.input :exam_end_date,  as: :string, input_html:  {type: :date,  :value => Time.now.to_date.to_s, order:  [:day, :month, :year], "aria-required" => "true"}, :hint => "Date should be in DD/MM/YYYY format"
+    = f.input :exam_start_time, :as => :time
+    = f.input :exam_end_time, :as => :time
+    = f.input :type_of_exam, :collection => ['Board exam such as, (10th / 12th)', 'Exam for 1st / 2nd / 3rd year of your graduation', 'Exam for 1st / 2nd year of your post graduation', 'Exam for any other course', 'Exam for banking / Insurance sector', 'Exam for government sector such as, (UPSC / MPSC / railway / etc', 'Any other'], :prompt => 'Please select type of exam'
+    = f.input :what_type_of_scribe, :label => "What type scribe do you need?", :collection => ['Below 10th', '10th pass', 'above 10th', '12th pass', 'under graduate', 'graduated', 'post graduated', 'Other'], :prompt => 'Please select 1'
+    = f.input :mode_of_exam, :collection => ['Online', 'Offline'], as: :radio_buttons
+    = f.input :medium_of_exam, :collection => ['English', 'Hindi', 'Marathi', 'Other',], :prompt => "Please select 1"
+    %h2 Exam address
+    = f.input :address_1
+    = f.input :address_2
+    = f.input :city
+    = f.input :pin
+    = f.input :state
+    = f.input :exam_discription, as: :text
+    - if user_signed_in?
+      = f.hidden_field :member_id, :value => current_user.member.id
+
+  .form-actions
+    = f.button :submit

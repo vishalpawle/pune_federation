@@ -1,0 +1,14 @@
+%h1 Details
+
+%p
+  %b Activity title:
+  = @activity.activity_title
+%p
+  %b Activity created date:
+  = @activity.activity_created_date
+%p
+  %b Activity discription:
+  =raw  @activity.activity_discription
+
+\|
+= link_to 'Back', activities_path

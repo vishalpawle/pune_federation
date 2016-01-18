@@ -1,0 +1,3 @@
+class Job < ActiveRecord::Base
+  validates :title, :company, type_job, :url, :discription, :presence => true
+end

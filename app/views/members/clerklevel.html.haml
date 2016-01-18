@@ -1,0 +1,45 @@
+%h1 Approve request on clerk level
+%p
+  %b Member name:
+  %br
+  %b= @member.personalinfo.last_name.capitalize + ' ' + @member.personalinfo.first_name.capitalize + ' ' + @member.personalinfo.middle_name.capitalize
+  %br
+  %b Membership number
+  %br
+  %b= @member.membership_no
+%br
+
+= simple_form_for clerklevel_path, :html => {"onsubmit" => "return ckform()"}, method: :put do |f|
+  %div{"role" => "form"}
+    .form-inputs
+      = label_tag "Receipt number"
+      = text_field_tag "receipt_no"
+      - if @member.old_member == nil
+        = check_box_tag 'fee_receive_flag'
+        = label_tag "We have received membership fee"
+        = label_tag "Membership fee amount"
+        = text_field_tag 'fee_amt'
+      - else
+        %i Being old member, fee field is not applicable for this member. Kindly click on direct “Approve button” for proceed.
+    .form-action
+      = submit_tag "Approve"
+      = link_to "Back to member main page", members_path
+:javascript
+  function ckform() {
+  if (document.getElementById('receipt_no').value == '') {
+  alert("Receipt no can't be blank");
+  document.getElementById('receipt_no').focus();
+  return false;
+  }
+  if (!document.getElementById('fee_receive_flag').checked ) {
+  alert(' No one is entitled for free membership');
+  document.getElementById('fee_receive_flag').focus();
+  return false;
+  }
+  if(document.getElementById('fee_amt').value == '') {
+  alert("Fee amount can't be blank");
+  document.getElementById('fee_amt').focus();
+  return false;
+  }
+  return true;
+  }

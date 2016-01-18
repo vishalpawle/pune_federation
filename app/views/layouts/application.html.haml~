@@ -1,0 +1,81 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title= content_for?(:title) ? yield(:title) : "National federation for blind of maharashtra - pune region"
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", :media => "all"
+    = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+    = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
+    = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
+    = javascript_include_tag "application"
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"
+
+
+  %body
+    .navbar.navbar-default.navbar-static-top
+      .container
+        %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand(href="#") National federation for blind maharashtra - pune region
+        \#skip a { position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden; }
+        \#skip a:focus { position:static; width:auto; height:auto; }
+        #skip
+          %a{:href => "#content"} Skip to Main Content
+        .navbar-collapse.collapse.navbar-responsive-collapse
+        %div#navigation{"role" => "navigation"}
+
+          %ul.nav.navbar-nav
+            %li= link_to "Home", root_path
+            - if user_signed_in?
+              %li= link_to 'sign out', destroy_user_session_path, :method => :delete
+            - else
+              %li= link_to "Take online membership", tirmsconditions_path
+              %li= link_to "Know your membership status", status_path
+              %li= link_to "Login", new_user_session_path
+            - if user_signed_in?
+              - if  current_user.role == 'admin'
+                %li= link_to 'New Activity', new_activity_path
+            - else
+              %li= link_to "Latest  activities", activities_path
+            %li= link_to "View our anual activities", anulshow_path
+            - if user_signed_in?
+              %li= link_to 'Scribe / writers', scriberequests_path
+            - else
+              = link_to "Scribe / writers", scriberequests_path,  :data => { :confirm => 'You need login Credentials to access this page!' }
+            %li= link_to "Our team", teams_path
+            %li= link_to "Employment", jobs_path
+            %li= link_to "Notifications by NFBM"
+            %li= link_to "Donate us", new_donation_path
+
+
+
+    .container
+      .row
+        .col-lg-9
+          = bootstrap_flash
+        %main#content{"role" => "main"}
+          = yield
+        .col-lg-3
+          .well.sidebar-nav
+          %div{"role" => "navigation"}
+
+            %ul.nav.nav-list
+              %li.nav-header
+              - if user_signed_in?
+                %li= link_to "Circulars", circulars_path
+              - else
+                %li= link_to "Circulars", circulars_path, :data => { :confirm => 'You need login Credentials to access this page!' }
+              %li= link_to "About Us", about_path
+              %li= link_to "Future Dreams", dream_path
+              %li= link_to "Contact Us", 'messages/new'
+      %footer
+        %p &copy NFBM Pune #{Date.today.year}

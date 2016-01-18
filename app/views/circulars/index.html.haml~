@@ -1,0 +1,150 @@
+%h1 Listing circulars
+%h2 Banking circulars
+%table
+  %thead
+    %tr
+      %th Short Discription about circular
+      %th Action
+  %tbody
+    - if @c1 != nil
+      - @c1.each do |c|
+        %tr
+          %td= c.circular_discription
+          %td= link_to "Download this circular", c.attachment_url
+%br
+%h2 Circular related to Consessions, schemes, and various allowances
+%table
+  %thead
+    %tr
+      %th Short Discription about circular
+      %th Action
+  %tbody
+    - if @c2 != nil
+      - @c2.each do |c|
+        %tr
+          %td= c.circular_discription
+          %td= link_to "Download this circular", c.attachment_url
+%br
+%h2 Disability certification circulars
+%table
+  %thead
+    %tr
+      %th Short Discription about circular
+      %th Action
+  %tbody
+    - if @c3 != nil
+      - @c3.each do |c|
+        %tr
+          %td= c.circular_discription
+          %td= link_to "Download this circular", c.attachment_url
+%br
+%h2 Educational Circulars
+%table
+  %thead
+    %tr
+      %th Short Discription about circular
+      %th Action
+  %tbody
+    - if @c4 != nil
+      - @c4.each do |c|
+        %tr
+          %td= c.circular_discription
+          %td= link_to "Download this circular", c.attachment_url
+%br
+%h2 Circulars for Government employees
+%table
+  %thead
+    %tr
+      %th Short Discription about circular
+      %th Action
+  %tbody
+    - if @c5 != nil
+      - @c5.each do |c|
+        %tr
+          %td= c.circular_discription
+          %td= link_to "Download this circular", c.attachment_url
+%br
+%h2 Circular issued by maharashtra government
+%table
+  %thead
+    %tr
+      %th Short Discription about circular
+      %th Action
+  %tbody
+    - if @c6 != nil
+      - @c6.each do |c|
+        %tr
+          %td= c.circular_discription
+          %td= link_to "Download this circular", c.attachment_url
+%br
+%h2 Circular issued by mahanagar palika
+%table
+  %thead
+    %tr
+      %th Short Discription about circular
+      %th Action
+  %tbody
+    - if @cp != nil
+      - @cp.each do |c|
+        %tr
+          %td= c.circular_discription
+          %td= link_to "Download this circular", c.attachment_url
+%br
+%h2 Circular issued by panchayat
+%table
+  %thead
+    %tr
+      %th Short Discription about circular
+      %th Action
+  %tbody
+    - if @c7 != nil
+      - @c7.each do |c|
+        %tr
+          %td= c.circular_discription
+          %td= link_to "Download this circular", c.attachment_url
+%br
+%h2 Circular issued by zilla parishad
+%table
+  %thead
+    %tr
+      %th Short Discription about circular
+      %th Action
+  %tbody
+    - if @c8 != nil
+      - @c8.each do |c|
+        %tr
+          %td= c.circular_discription
+          %td= link_to "Download this circular", c.attachment_url
+%br
+%h2 Circculars for office berrors / executive members
+%table
+  %thead
+    %tr
+      %th Short Discription about circular
+      %th Action
+  %tbody
+    - if @c8 != nil
+      - @c8.each do |c|
+        %tr
+          %td= c.circular_discription
+          %td= link_to "Download this circular", c.attachment_url
+
+%table
+  %thead
+    %tr
+      %th Short discription of circular
+      %th
+      %th
+      %th
+
+  %tbody
+    - @circulars.each do |circular|
+      %tr
+        %td= circular.circular_discription
+        %td= link_to 'Show', circular
+        %td= link_to 'Edit', edit_circular_path(circular)
+        %td= link_to 'Destroy', circular, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Circular', new_circular_path

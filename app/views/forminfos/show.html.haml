@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Introduces by:
+  = @forminfo.introduces_by
+%p
+  %b Member submited form date:
+  = @forminfo.member_submited_form_date
+%p
+  %b F place:
+  = @forminfo.f_place
+%p
+  %b Form details:
+  = @forminfo.form_details
+%p
+  %b Member:
+  = @forminfo.member
+
+= link_to 'Edit', edit_forminfo_path(@forminfo)
+\|
+= link_to 'Back', forminfos_path

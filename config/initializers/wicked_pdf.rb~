@@ -1,0 +1,8 @@
+WickedPdf.config = {
+  :wkhtmltopdf => '/usr/local/bin/wkhtmltopdf',
+#  :layout => "pdf.html.haml",
+#  :exe_path: '/path/to/wkhtmltopdf', #usr/local/bin/wkhtmltopdf'
+  :exe_path => "bundle exec #{Rails.root.join('vendor','bin','wkhtmltopdf')}"
+
+#  :exe_path => '/usr/local/bin/wkhtmltopdf-amd64'
+}

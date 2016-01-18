@@ -1,0 +1,57 @@
+%p#notice= notice
+
+%p
+  %b Standard passed:
+  = @professionalinfo.standard_passed
+%p
+  %b Professional qualification:
+  = @professionalinfo.professional_Qualification
+%p
+  %b Es address 1:
+  = @professionalinfo.es_address_1
+%p
+  %b Es address 2:
+  = @professionalinfo.es_address_2
+%p
+  %b Es city:
+  = @professionalinfo.es_city
+%p
+  %b Es pin:
+  = @professionalinfo.es_pin
+%p
+  %b Es state:
+  = @professionalinfo.es_state
+%p
+  %b Es tell:
+  = @professionalinfo.es_tell
+%p
+  %b Es email:
+  = @professionalinfo.es_email
+%p
+  %b Designation:
+  = @professionalinfo.designation
+%p
+  %b Department:
+  = @professionalinfo.department
+%p
+  %b Occupation details:
+  = @professionalinfo.occupation_details
+%p
+  %b Annual income:
+  = @professionalinfo.annual_income
+%p
+  %b Unemployed registered details:
+  = @professionalinfo.unemployed_registered_details
+%p
+  %b Unemployed registration no:
+  = @professionalinfo.unemployed_registration_no
+%p
+  %b Employment registration date:
+  = @professionalinfo.employment_registration_date
+%p
+  %b Member:
+  = @professionalinfo.member
+
+= link_to 'Edit', edit_professionalinfo_path(@professionalinfo)
+\|
+= link_to 'Back', professionalinfos_path

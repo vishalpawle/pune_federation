@@ -1,0 +1,15 @@
+= simple_form_for(@circular) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :circular_discription, :input_html => {"aria-required" => "true"}
+    %h3#circularfor Circular For:
+    %div{"aria-labelledby" => "circularfor", :role => "radiogroup"}
+      = f.input :circular_for, collection: ['Banking circulars', 'Circular related to Consessions, schemes, and various allowances', 'Disability certification circulars', 'Educational Circulars', 'Circulars for Government employees', 'Circular issued by maharashtra government', 'Circular issued by mahanagar palika', 'Circular issued by panchayat', 'Circular issued by zilla parishad', 'Circculars for office berrors / executive members'], as: :radio_buttons
+    %div{"aria-labelledby" => "dialogheader", :role => "dialog"}
+      %h3#dialogheader Choose a File
+      = f.label "Circular file"
+      = f.file_field :attachment
+
+  .form-actions
+    = f.button :submit

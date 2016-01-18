@@ -1,0 +1,13 @@
+= javascript_include_tag Ckeditor.cdn_url
+= simple_form_for(@message) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :email
+    = f.input :phone
+    = f.input :subject
+    = f.input :message_content, :as => :ckeditor, :input_html => {'ckeditor' => {'toolbar' => 'mini'}}
+
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,33 @@
+<strong> Hello Admin, </strong>
+<br/>
+Greeding from NFBM-Pune.
+<br/>
+<p>
+A clerk of your organisation had approve the request of member <%= @member.personalinfo.first_name.capitalize + ' ' + @member.personalinfo.last_name.capitalize %> by verifying his documents. Now, it is your time to confirm his membership.
+<br/>
+Please see details of this member so that, you will get breef idea of the member.
+<br/>
+<b> Name of the member: <br/> <%= @member.personalinfo.last_name.capitalize + ' ' + @member.personalinfo.first_name.capitalize + ' ' + @member.personalinfo.middle_name.capitalize %> <br/> </b>
+<b> Membership number: <br/> <%= @member.membership_no %> <br/> </b>
+</p>
+<h1> instructions for confirming membership: </h1>
+<br/>
+<p>
+<ol>
+<li> Visit the website http://www.nfbmpune.org </li>
+<li> Login with your credentials (membership number & password) </li>
+<li> Click on "member's main page" </li>
+<li> Find the above member's information in tabular format. </li>
+<li> Click on "View full membership details" and read the entire membership form </li>
+<li> Click on the 'Back' link, </li>
+<li> And now find the link 'Verify / confirm membership', and follow the steps. </li>
+</ol>
+
+</p>
+<br/>
+<strong> Regards, </strong>
+<br/>
+<strong> Pune blind federation team </strong>
+<br/>
+<br/>
+<strong> *** This email can't receive reply *** </strong>

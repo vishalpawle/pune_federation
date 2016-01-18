@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  member_braille_books_circulating_library: false
+  self_employment_aid: false
+  scholarship_student_aid_scheme: false
+  member_of_braille_jagriti_magazine: false
+  placement_services: false
+  medical_aid: false
+  counselling_services: false
+  any_others: MyString
+  member_id: 
+
+two:
+  member_braille_books_circulating_library: false
+  self_employment_aid: false
+  scholarship_student_aid_scheme: false
+  member_of_braille_jagriti_magazine: false
+  placement_services: false
+  medical_aid: false
+  counselling_services: false
+  any_others: MyString
+  member_id: 

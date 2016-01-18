@@ -1,0 +1,252 @@
+%h1 Pradhaan office address:
+%br
+The National Federation of the Blind, Maharashtra
+%br
+Rachanatmak karya samiti, Gandhi Chowk, R.S. Road, Vile Parle (West), Mumbai 400056.
+%br
+Phone:
+%a{:href => "tel:02226140916"} 022-26140916
+%br
+E-mail:
+%a{:href => "mailto:nfbmah@gmail.com?Subject=Hello%20", :target => "_top"} nfbmah@gmail.com
+%br
+%h2 Address for Pune branch:
+%br
+%i The National Federation of the Blind, Maharashtra - pune branch
+%br
+Block B - 13 , Nehru Stadium , Swargate Pune - 411009
+%br
+Phone:
+%a{:href => "tel:02024445494"} 020-24445494
+%br
+E-mail:
+%a{:href => "mailto:nfbmpune15@gmail.com?Subject=Hello%20", :target => "_top"} nfbmpune15@gmail.com
+%h3 Application of membership
+%br
+%table
+  %tbody
+    %th Membership Number
+    %th Receipt Number
+    %th Membership register date
+    %th Membership class
+    %th Date of admission
+    %th Branch
+  %tr
+    %td= @member.membership_no
+    %td= @member.receipt_no
+    %td= @member.membership_register_date
+    %td= @member.membership_class
+    %td= @member.date_of_admission
+    %td= @member.branch
+
+%h4 Personal details:
+%br
+- if @member.documentinfo != nil
+  = image_tag @member.documentinfo.photo.url(:medium), :alt => "Member's photo"
+%br
+- if @member.personalinfo != nil
+  %table.table
+    %tbody
+      %th Name
+      %th Date of birth
+      %th Gender
+      %th Occupation
+    %tr
+      %td= @member.personalinfo.type_human + ' ' + @member.personalinfo.last_name.capitalize + " " + @member.personalinfo.first_name.capitalize + " " + @member.personalinfo.middle_name.capitalize
+      %td= @member.personalinfo.date_of_birth
+      %td= @member.personalinfo.gender
+      %td= @member.personalinfo.occupation
+- else
+  %b Personal details not provided by this member.
+%br
+%h4 Address details:
+%br
+- if @member.addressinfo != nil
+  %table.table
+    %tbody
+      %th Address:
+      %th Village / area
+      %th Taluka
+      %th City
+      %th Pin
+      %th State
+    %tr
+      %td= @member.addressinfo.address_1 + ' ' + @member.addressinfo.address_2
+      %td= @member.addressinfo.village
+      %td= @member.addressinfo.taluka
+      %td= @member.addressinfo.city
+      %td= @member.addressinfo.pin
+      %td= @member.addressinfo.state
+- else
+  %b Address related information not provided by this member.
+%br
+%h4 Contact Details:
+%br
+- if @member.contactinfo != nil
+  %table.table
+    %tbody
+      %th Email
+      %th Contact No
+      %th Mobile Number
+      %th Mobile 2
+    %tr
+      %td= @member.contactinfo.email
+      %td= @member.contact_no
+      %td= @member.contactinfo.mobile_no
+      %td= @member.contactinfo.mobile_2
+- else
+  %b Contact information not provided by this member.
+%br
+%h4 Information related disability
+%br
+- if @member.disabilityinfo != nil
+  %table
+    %tbody
+      %th Do you have Disability
+      %th Type of disability:
+      %th Percentage of disability:
+      %th Since age
+      %th Disability reason
+    %tr
+      %td= @member.disabilityinfo.have_you_disability
+      %td= @member.disabilityinfo.type_disability
+      %td= @member.disabilityinfo.percentage_disability
+      %td= @member.disabilityinfo.since_age
+      %td= @member.disabilityinfo.disability_reason
+- else
+  %b Information keep empty by member.
+%br
+%h4 Family details:
+%br
+
+- if @member.maritalinfo != nil
+  %table
+    %tbody
+      %thMarital status
+      %th Wedding anniversary date
+      %th Spouse name
+      %th No of family members
+      %th Kids
+      %th Parents dependent on you
+    %tr
+      %td= @member.maritalinfo.marital_status
+      %td= @member.maritalinfo.wedding_anniversary_date
+      %td= @member.maritalinfo.spouse_type + ' ' + @member.maritalinfo.spouse_firstt_name.capitalize + ' ' + @member.maritalinfo.spouse_middle_name.capitalize + ' ' + @member.maritalinfo.spouse_sur_name
+      %td= @member.maritalinfo.no_of_family_members
+      %td= @member.maritalinfo.kids
+      %td= @member.maritalinfo.parents_dependent_on_you
+- else
+  %b Empty information.
+%br
+%h4 Educational Details
+%br
+- if @member.professionalinfo != nil
+  %i Standard passed:
+  %br
+  %i= @member.professionalinfo.standard_passed
+- else
+  %b Empty information.
+%br
+- if @member.professionalinfo != nil
+  %i Professional Qualification:
+
+  %br
+  %i= @member.professionalinfo.professional_Qualification
+- else
+  %b Empty information.
+%br
+%div "Details of Employer (Office Address) for Individual member (If Employed / Self-Employed) or Details of Institution (If student)"
+%br
+- if @member.professionalinfo != nil
+  %table
+    %tbody
+      %th Address
+      %th City
+      %th Pin
+      %th State
+      %th Tel
+      %th E-mail
+      %th Designation
+      %th Department
+      %th Occupation details
+      %th Annual Income
+      %th Unemployed registered details
+      %th Unemployed registration no
+    %tr
+      %td= @member.professionalinfo.es_address_1 + " " + @member.professionalinfo.es_address_2
+      %td= @member.professionalinfo.es_city
+      %td= @member.professionalinfo.es_pin
+      %td= @member.professionalinfo.es_state
+      %td= @member.professionalinfo.es_tell
+      %td= @member.professionalinfo.es_email
+      %td= @member.professionalinfo.designation
+      %td= @member.professionalinfo.department
+      %td= @member.professionalinfo.occupation_details
+      %td= @member.professionalinfo.annual_income
+      %td= @member.professionalinfo.unemployed_registered_details
+      %td= @member.professionalinfo.unemployed_registration_no
+- else
+  %b Empty information.
+%br
+%h4 Disability certificate details
+%br
+- if @member.certificateinfo != nil
+  %table
+    %tbody
+      %th Do you have Certificate of Blindness from Civil Surgeon?
+      %th Do you know Braille?
+      %th Blindness issued dr name
+      %th Place
+      %th Certificate no
+      %th Certificate date
+      %th Percent blindness stated
+    %tr
+      %td= @member.certificateinfo.do_you_have_blindness
+      %td= @member.certificateinfo.do_you_know_braille
+      %td= @member.certificateinfo.blindness_issued_dr_name
+      %td= @member.certificateinfo.place
+      %td= @member.certificateinfo.certificate_no
+      %td= @member.certificateinfo.certificate_date
+      %td= @member.certificateinfo.percent_blindness_stated
+- else
+  %b Empty information.
+%br
+- if @member.documentinfo != nil
+  %i "Type of ID card you are going to submit:"
+  %br
+  %i= @member.documentinfo.type_id_proup
+- else
+  %b Empty information.
+%br
+- if @member.documentinfo != nil
+  %i "ID Number:"
+  %br
+  %i= @member.documentinfo.id_no
+- else
+  %b Empty information.
+%br
+- if @member.forminfo != nil
+  %p
+    I pledge to participate actively I support the objectives & core values of the NFBM, & I shall abide to constitution of the NFBM.
+    %br
+    I also declare, the above information is true & correct to my knowledge & Belief.
+    %br
+    Date:
+    %br
+    = @member.forminfo.member_submited_form_date
+    %br
+    Proposed / Introduces by:
+    %br
+    = @member.forminfo.introduces_by
+    %br
+    Membership number:
+    %br
+    = @member.membership_no
+%br
+- if @member.documentinfo != nil
+  = image_tag @member.documentinfo.signature.url(:medium), :alt => "Member's signature"
+%br
+%a{:href => "#", :onclick => "window.print();return false;"} print me
+= link_to "Back", members_path
+%br
+

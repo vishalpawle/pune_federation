@@ -1,0 +1,8 @@
+%h1 Check your membership status
+%p#notice= notice
+%br
+= simple_form_for status_path, method: :put do |f|
+  %div{"role" => "form"}
+    = label_tag "Provisional membership number"
+    = text_field_tag 'membership_no'
+    = submit_tag "Check status"

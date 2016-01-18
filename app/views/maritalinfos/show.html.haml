@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Marital status:
+  = @maritalinfo.marital_status
+%p
+  %b Wedding anniversary date:
+  = @maritalinfo.wedding_anniversary_date
+%p
+  %b Spouse type:
+  = @maritalinfo.spouse_type
+%p
+  %b Spouse firstt name:
+  = @maritalinfo.spouse_firstt_name
+%p
+  %b Spouse middle name:
+  = @maritalinfo.spouse_middle_name
+%p
+  %b Spouse sur name:
+  = @maritalinfo.spouse_sur_name
+%p
+  %b No of family members:
+  = @maritalinfo.no_of_family_members
+%p
+  %b Kids:
+  = @maritalinfo.kids
+%p
+  %b Parents dependent on you:
+  = @maritalinfo.parents_dependent_on_you
+%p
+  %b Member:
+  = @maritalinfo.member
+
+= link_to 'Edit', edit_maritalinfo_path(@maritalinfo)
+\|
+= link_to 'Back', maritalinfos_path

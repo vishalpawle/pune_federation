@@ -1,0 +1,15 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+#$(document).ready ->
+  alert('1')
+  validate()
+  validate = ->
+    alert('2')
+
+    if document.new_member.member_membership_no.value == ''
+      alert 'Please provide your name!'
+      document.new_member.member_membership_no.focus()
+      return false
+    return true
+

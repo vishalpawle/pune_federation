@@ -1,0 +1,52 @@
+﻿= simple_form_for @member, :html => {"onsubmit" => "return validate()"} do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :membership_no, :input_html => { :value => "7700#{@mem}"}, :readonly => true
+    = f.input :membership_register_date, as: :string, input_html:  {type: :date,  :value => Time.now.to_date.to_s, order:  [:day, :month, :year], "aria-required" => "true"}
+    = f.input :membership_class, :collection => ['LIFE', 'COMPANY', 'HONORARY'], :prompt => 'Please select membership class', "aria-required" => "true"
+    = f.input :date_of_admission, as: :string, input_html:  {type: :date,  :value => Time.now.to_date.to_s, order:  [:day, :month, :year]}
+    = f.input :branch, :input_html => {"aria-required" => "true"}
+    %div{"role" => "complementary"}
+      %br
+      %i *stared is mandatory,    tick where applicable, ‘NBFM’ stands for the ‘National Federation of the Blind, Maharashtra.’
+      %br
+      %i * I hereby apply for LIFE /COMPANY / HONORARY membership, I shall abide by the rules and regulations of the Federation (NBFM).
+
+    = f.input :terms_agree, :label => "I agree"
+
+  .form-action
+    = f.submit "Next"
+:javascript
+  function validate() {
+  if ( document.getElementById('member_membership_no').value == "" ) {
+  alert ("Membership no cant be blank ");
+  document.getElementById('member_membership_no').focus();
+  return false;
+  }
+  if ( document.getElementById('member_membership_register_date').value == "" ) {
+  alert (" Membership register date should not be blank ");
+  document.getElementById('member_membership_register_date').focus();
+  return false;
+  }
+  if ( document.getElementById('member_membership_class').value == "" ) {
+  alert ("Membership class must be selected! ");
+  document.getElementById('member_membership_class').focus();
+  return false;
+  }
+  if ( document.getElementById('member_date_of_admission').value == "" ) {
+  alert (" Addmission date cannot be blank! ");
+  document.getElementById('member_date_of_admission').focus();
+  return false;
+  }
+  if ( document.getElementById('member_branch').value == "" ) {
+  alert ("Branch must be selected! " );
+  document.getElementById('member_branch').focus();
+  return false;
+  }
+  if (!document.getElementById('member_terms_agree').checked ) {
+  alert (" terms must be accepted! ");
+  document.getElementById('member_terms_agree').focus();
+  return false;
+  }
+  return true;
+  }

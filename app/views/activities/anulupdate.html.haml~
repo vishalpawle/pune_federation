@@ -1,0 +1,6 @@
+= simple_form_for anulupdate_path(@activity), method: :put do |f|
+  .form-input
+    = label_gtag "Anual activity content"
+    = cktext_area_tag 'anual', @activity.anual_activity
+  .form-action
+    = submit_tag "Update"

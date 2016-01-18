@@ -1,0 +1,8 @@
+%h1 About us
+%br
+- if @content != nil
+  = raw @content.about_us
+- else
+  %b Empty page
+%br
+= link_to "Home", root_url

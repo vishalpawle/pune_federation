@@ -1,0 +1,20 @@
+%p#notice= notice
+%h1 Employment
+%p
+  %b Title:
+  = @job.title
+%p
+  %b Company / organisation:
+  = @job.company
+%p
+  %b Type of job:
+  = @job.type_job
+%p
+  %h2 Discription:
+  = raw @job.discription
+%p
+  %b Official URL:
+  = link_to "Hear", @job.url
+= link_to 'Edit', edit_job_path(@job)
+\|
+= link_to 'Back', jobs_path

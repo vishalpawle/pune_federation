@@ -1,0 +1,6 @@
+$(document).ready ->
+  $('#bt1').prop 'disabled', true
+  $('.v').keyup ->
+    alert('1')
+    $('#bt1').attr( 'disabled', false)
+

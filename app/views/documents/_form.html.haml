@@ -1,0 +1,10 @@
+= simple_form_for([@member, @document]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :date_of_birth_proof, as: :file
+    = f.input :disability_certificate, as: :file
+    = f.input :id_proof, as: :file
+    = f.input :address_proof, as: :file
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,9 @@
+%h1 Anual Activities
+%p
+  - if @activity != nil
+    = raw @activity.anual_activity
+    %br
+    = link_to "update this content", anulupdate_path(@activity.id)
+  - else
+    %strong Content is not provided by admin team.
+

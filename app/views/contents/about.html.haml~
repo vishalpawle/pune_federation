@@ -1,0 +1,5 @@
+%h1 About us
+%br
+= raw @content.about_us
+%br
+= link_to "Home", root_url

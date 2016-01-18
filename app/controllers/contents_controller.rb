@@ -1,0 +1,37 @@
+class ContentsController < ApplicationController
+  def dream
+    @content = Content.where(:dream => true).last
+  end
+  def about
+    @content = Content.where(:about_flag => true).last
+  end
+  def new
+    @content = Content.new
+  end
+  def edit
+    @content = Content.find(params[:id])
+  end
+  def create
+    @content = Content.new(content_params)
+    respond_to do |format|
+    if @content.save
+      format.html {redirect_to root_url, notice: "Both pages are created! "}
+      else
+        render 'new'
+      end
+    end
+  end
+  def update
+    respond_to do |format|
+    if @content.update(content_params)
+        format.html {redirect_to root_url, notice: "Data updated! " }
+      else
+      render 'edit'
+      end
+    end
+  end
+  private
+    def content_params
+        params.require(:content).permit(:dream_content, :dream, :about_flag, :about_us)
+      end
+end

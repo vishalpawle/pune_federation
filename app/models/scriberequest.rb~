@@ -1,0 +1,34 @@
+class Scriberequest < ActiveRecord::Base
+  belongs_to :member
+
+  validates :member_name, :member_mobile, :exam_start_date, :exam_end_date, :exam_start_time, :exam_end_time, :type_of_exam, :what_type_of_scribe, :medium_of_exam, :address_1, :city, :pin, :state, :mode_of_exam, :presence => true
+  validate :checkdate
+  validate :mytime
+  validate :examstartdate
+  validate :examenddate
+  def checkdate
+    if exam_end_date && exam_start_date
+      errors.add(:exam_end_date, "End date should not be smaller than start date ") if exam_end_date < exam_start_date
+    end
+  end
+  def mytime
+    if exam_end_time && exam_start_time
+      errors.add(:exam_end_time, "Please enter valid time") if exam_end_time < exam_start_time
+    end
+  end
+
+  def examstartdate
+    if exam_start_date
+      if exam_start_date < Date.today
+        errors.add(:exam_start_date, "Passed date is not allowed!")
+      end
+    end
+  end
+  def examenddate
+    if exam_end_date
+      if exam_end_date < Date.today
+        errors.add(:exam_end_date, "Pass date is not allowed!" )
+      end
+    end
+  end
+end

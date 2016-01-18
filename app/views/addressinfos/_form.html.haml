@@ -1,0 +1,13 @@
+= simple_form_for([@member, @addressinfo]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :address_1, :label => "Address for correspondences (write one prominent landmark)", :input_html => {"aria-required" => "true"}
+    = f.input :address_2, :input_html => {"role" => "textbox"}
+    = f.input :village, :label => "Area/Village", :input_html => {"aria-required" => "true"}
+    = f.input :taluka, :input_html => {"role" => "textbox"}
+    = f.input :city, :input_html => {"aria-required" => "true"}
+    = f.input :pin, :input_html => {"aria-required" => "true"}, :hint => "6 digits are require"
+    = f.input :state, :collection =>  CS.states(:IN).values, :prompt => "Please select state"
+  .form-action
+    = f.submit "Next"

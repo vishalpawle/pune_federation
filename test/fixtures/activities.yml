@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  anual_activity: MyText
+  hdn_boolean: MyString
+  activity_title: MyString
+  activity_created_date: 2015-08-05
+  activity_discription: MyText
+
+two:
+  anual_activity: MyText
+  hdn_boolean: MyString
+  activity_title: MyString
+  activity_created_date: 2015-08-05
+  activity_discription: MyText

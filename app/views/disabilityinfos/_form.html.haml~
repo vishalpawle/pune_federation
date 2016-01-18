@@ -1,0 +1,14 @@
+= simple_form_for([@member, @disabilityinfo]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :have_you_disability
+    = f.input :type_disability
+    = f.input :percentage_disability
+    = f.input :since_age
+    = f.input :disability_reason
+    = f.input :member_id, :input_html => {:value => @member.id}
+
+
+  .form-actions
+    = f.button :submit

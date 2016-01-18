@@ -1,0 +1,21 @@
+= simple_form_for([@member, @forminfo]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    %div{"role" => "contentinfo"}
+      %i I pledge to participate actively I support the objectives & core values of the NFBM, & I shall abide to constitution of the NFBM.
+      %br
+      %i I also declare, the above information is true & correct to my knowledge & Belief.
+    = f.input :introduces_by , :label => "proposed / Introduces by, Please his / her Membership number", "aria-required" => "true"
+    - if user_signed_in?
+      - if current_user.role == 'clerk'
+        = f.input :old_member
+        = f.input :member_submited_form_date, as: :string, input_html:  {type: :date,  :value => Time.now.to_date.to_s, order:  [:day, :month, :year], "aria-required" => "false"}, :hint => "Date should be in DD/MM/YYYY format", :readonly => false
+
+    - else
+      = f.input :member_submited_form_date, as: :string, input_html:  {type: :date,  :value => Time.now.to_date.to_s, order:  [:day, :month, :year], "aria-required" => "true"}, :hint => "Date should be in DD/MM/YYYY format", :readonly => true
+    = f.input :form_details, :label => "I agree"
+
+  .form-action
+    = f.submit "Save"
+

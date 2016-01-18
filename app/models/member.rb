@@ -1,0 +1,54 @@
+class Member < ActiveRecord::Base
+  has_many :scriberequests,  dependent: :destroy
+  has_one :personalinfo,  dependent: :destroy
+  has_one :addressinfo,  dependent: :destroy
+  has_one :contactinfo,  dependent: :destroy
+  has_one :disabilityinfo,  dependent: :destroy
+  has_one :maritalinfo,  dependent: :destroy
+  has_one :professionalinfo,  dependent: :destroy
+  has_one :certificateinfo, dependent: :destroy
+  has_one :serviceinfo,  dependent: :destroy
+  has_one :documentinfo,  dependent: :destroy
+  has_one :forminfo,  dependent: :destroy
+  has_one :user, dependent: :destroy
+  has_one :document,  dependent: :destroy
+  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
+  has_attached_file :signature, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+validates_attachment_content_type :signature, :content_type => /\Aimage\/.*\Z/
+#  validates_attachment :photo, :presence => true #:content_type =># { :content_type => ['image/jpg', 'image/png', 'image/jpeg']}
+#  validates_attachment :signature, :presence => true #:content_type => { :content_type => ['image/jpg', 'image/png', 'image/jpeg']}
+
+
+  #validates :first_name, :last_name, :address_1, :mobile_no, :date_of_birth, :branch, :membership_register_date, :membership_class, :gender, :occupation, :address_1, :village, :city, :pin, :state, :have_you_disability, :marital_status, :no_of_family_members, :parents_dependent_on_you, :standard_passed, :annual_income, :introduces_by
+  validates :branch, :membership_register_date, :membership_class, :terms_agree, :membership_no, :presence => true
+#  validates :first_name, :last_name
+  validates :branch,   :format => {:with => /\A[a-zA-z]+\z/, :message => "Only letters allowed."}
+  validates :middle_name, :spouse_firstt_name, :spouse_middle_name, :spouse_sur_name, :es_city, :blindness_issued_dr_name,  :format => {:with => /\A[a-zA-z]+\z/, :message => "Only letters allowed."}, :allow_blank => true
+  validates :membership_no, :uniqueness => true
+
+
+#  validates :pin, :format { with:  /^\d{6}$/, :message => "Please provide 6 digit pin code" }
+#  validates :mobile_no, :format => { with: /(^\s*$|^\s*[789]\d{9}\s*$)/, :message => " Number should be start from 7, 8, or 9. " }
+  validates :mobile_2, :format => { with: /(^\s*$|^\s*[789]\d{9}\s*$)/, :message => " Number should be start from 7, 8, or 9. " }, :allow_blank => true
+
+#  validates :es_pin, :format => { :with => /^\d{6}$/, :message => "Please provide 6 digit pin code" }, :allow_blank => true
+validates_format_of :email, :es_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :allow_blank => true
+
+  validate :mrd
+  validate :dateadmission
+  def mrd
+    if membership_register_date
+      if membership_register_date > Date.today
+        errors.add(:membership_register_date, "Future date is not allowed here ")
+      end
+    end
+  end
+  def dateadmission
+    if date_of_admission
+      if date_of_admission > Date.today
+        errors.add(:date_of_admission, "Future date is not allowed")
+      end
+    end
+  end
+end

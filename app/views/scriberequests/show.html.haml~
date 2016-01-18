@@ -1,0 +1,78 @@
+%p#notice= notice
+%h1 Details
+%p
+  %b Member name:
+  = @scriberequest.member_name
+%p
+  %b Member email:
+  = @scriberequest.member_email
+%p
+  %b Member mobile:
+  = @scriberequest.member_mobile
+%p
+  %b Exam start date:
+  = @scriberequest.exam_start_date
+%p
+  %b Exam end date:
+  = @scriberequest.exam_end_date
+%p
+  %b Exam duration:
+  = @scriberequest.exam_duration
+%p
+  %b Exam start time:
+  = @scriberequest.exam_start_time
+%p
+  %b Exam end time:
+  = @scriberequest.exam_end_time
+%p
+  %b Type of exam:
+  = @scriberequest.type_of_exam
+%p
+  %b What type of scribe:
+  = @scriberequest.what_type_of_scribe
+%p
+  %b Medium of exam:
+  = @scriberequest.medium_of_exam
+%p
+  %b Address 1:
+  = @scriberequest.address_1
+%p
+  %b Address 2:
+  = @scriberequest.address_2
+%p
+  %b City:
+  = @scriberequest.city
+%p
+  %b Pin:
+  = @scriberequest.pin
+%p
+  %b State:
+  = @scriberequest.state
+%p
+  %b Exam discription:
+  = @scriberequest.exam_discription
+%p
+  %b Scribe first name:
+  = @scriberequest.scribe_first_name
+%p
+  %b Scribe last name:
+  = @scriberequest.scribe_last_name
+%p
+  %b Scribe email:
+  = @scriberequest.scribe_email
+%p
+  %b Scribe mobile:
+  = @scriberequest.scribe_mobile
+%p
+  %b Rejection reason:
+  = @scriberequest.rejection_reason
+%p
+  %b Request status:
+  = @scriberequest.request_status
+%p
+  %b Member:
+  = @scriberequest.member
+
+= link_to 'Edit', edit_scriberequest_path(@scriberequest)
+\|
+= link_to 'Back', scriberequests_path

@@ -1,0 +1,16 @@
+= simple_form_for([@member, @certificateinfo]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :do_you_have_blindness
+    = f.input :blindness_issued_dr_name
+    = f.input :place
+    = f.input :certificate_no
+    = f.input :certificate_date
+    = f.input :percent_blindness_stated
+    = f.input :do_you_know_braille
+    = f.input :member_id, :input_html => {:value => @member.id}
+
+
+  .form-actions
+    = f.button :submit

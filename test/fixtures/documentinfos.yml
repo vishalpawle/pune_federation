@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type_id_proup: MyString
+  id_no: MyString
+  member_id: 
+
+two:
+  type_id_proup: MyString
+  id_no: MyString
+  member_id: 

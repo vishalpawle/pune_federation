@@ -1,0 +1,20 @@
+<strong> Name of the member:
+<br/>
+<%= @member.personalinfo.last_name.capitalize + ' ' + @member.personalinfo.first_name.capitalize + ' ' + @member.personalinfo.middle_name.capitalize %>
+</strong>
+<br/>
+<strong> Membership number:
+<br/>
+<%= @member.membership_no %>
+</strong>
+<br/>
+<strong> Dear member, </strong>
+<br/>
+<p> We are pleased to inform  you that, your membership application accepted by NFBM's team and now you became <%= @member.membership_class %> member with us! Please note down your membership number witch will be use for your feuture reference.
+</p>
+<br/>
+<strong> Regards, </strong>
+<br/>
+<b> Pune Blind federation team </b>
+<br/>
+<b> *** This email can't receive reply *** </b>

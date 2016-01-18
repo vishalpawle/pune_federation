@@ -1,0 +1,12 @@
+%p#notice= notice
+%h1 Information about #{@team.name}
+%p
+  %b Title: 
+  = @team.post
+%br
+%p
+  = raw @team.information
+
+%br
+\|
+= link_to 'Back', teams_path

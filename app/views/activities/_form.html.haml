@@ -1,0 +1,14 @@
+= javascript_include_tag Ckeditor.cdn_url
+= simple_form_for(@activity) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :activity_title, :input_html => {"aria-required" => "true"}
+    = f.input :activity_created_date, as: :string, input_html:  {type: :date,  :value => Time.now.to_date.to_s, order:  [:day, :month, :year], "aria-required" => "true"}, :hint => "Date should be in DD/MM/YYYY format"
+    = f.input :activity_discription, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini'} }
+    = f.input :photo_1, as: :file
+    = f.input :photo_2, as: :file
+    = f.input :photo_3, as: :file
+
+  .form-actions
+    = f.button :submit

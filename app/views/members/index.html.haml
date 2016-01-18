@@ -1,0 +1,45 @@
+%p#notice= notice
+%h1 Members main page
+%table
+  %tbody
+    %th Member name
+    %th Membership number
+    %th Membership class
+    %th Action
+    - if user_signed_in?
+      - if current_user.role == 'admin' || current_user.role == 'clerk'
+        %th Action
+        %th Action
+        %th Action
+        %th Action
+  - if user_signed_in? && current_user.role == 'clerk' || current_user.role == 'admin'
+    - @members.each do |member|
+      %tr
+        - if member.personalinfo != nil
+          %td= member.personalinfo.last_name.capitalize + ' ' + member.personalinfo.first_name.capitalize + ' ' + member.personalinfo.middle_name.capitalize
+        - else
+          %td wrong application
+        %td= member.membership_no
+        %td= member.membership_class
+        %td= link_to 'View full membership details', member
+        - if user_signed_in?
+          - if current_user.role == 'clerk'
+            - if  member.clerk_flag == nil && member.admin_flag == nil
+              %td= link_to 'Approve on clerk level and send to admin for verification', new_member_document_path(member)
+          - elsif current_user.role == 'admin'
+            - if member.clerk_flag == true && member.admin_flag == nil
+              %td= link_to 'Verify / confirm membership', adminlevel_path(member)
+            - if   member.user != nil
+              %td= link_to "Change role of this member", changerole_path(member.user.id)
+          - if current_user.role == 'admin'
+            %td= link_to "Make defaulter / invalid this member", suspend_path(member)
+  - else
+    %tr
+      - if current_user.member.personalinfo != nil
+        %td= current_user.member.personalinfo.last_name.capitalize + ' ' + current_user.member.personalinfo.first_name.capitalize + ' ' + current_user.member.personalinfo.middle_name.capitalize
+      - else
+        %td wrong application
+      %td= current_user.member.membership_no
+      %td= current_user.member.membership_class
+      %td= link_to 'View full membership details', current_user.member
+

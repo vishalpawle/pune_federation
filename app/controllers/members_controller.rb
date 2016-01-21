@@ -2,7 +2,10 @@ require 'prawn'
 require 'htmltoword'
 require 'prawn/table'
 class MembersController < ApplicationController
+#  load_and_authorize_resource :eccept => [:new, :create, :tirmsconditions]
+
   def index
+
     if user_signed_in?
       if current_user.role == 'admin' || current_user.role == 'clerk'
         @members = Member.where(:suspend => nil).where(:delete_flag =>  nil)
@@ -15,6 +18,7 @@ class MembersController < ApplicationController
   end
   def tempdelete
     @member = Member.find(params[:member_id])
+    authorize! :tempdelete, @member
     if request.put?
       respond_to do |format|
       @member.delete_flag = true
@@ -32,6 +36,8 @@ class MembersController < ApplicationController
 
   def clerklevel
     @member = Member.find(params[:member_id])
+    authorize! :clerklevel, @member
+
     if request.put?
 
       @member.receipt_no = params[:receipt_no]
@@ -77,6 +83,8 @@ p session[:memberid]
   end
   def adminlevel
     @member = Member.find(params[:member_id])
+    authorize! :adminlevel, @member
+
     if request.put?
       respond_to do |format|
       @member.admin_flag = true
@@ -98,6 +106,7 @@ p session[:memberid]
   end
   def show
     @member = Member.find(params[:id])
+    authorize! :read, @member
     respond_to do |format|
       format.html
       format.xml { render :xml => @member }
@@ -116,6 +125,7 @@ p session[:memberid]
   end
   def changerole
     @user = User.find(params[:user_id])
+    authorize! :changerole, @user
     if request.put?
       respond_to do |format|
       @user.role = params[:role]
@@ -131,6 +141,7 @@ p session[:memberid]
   end
   def suspend
     @member = Member.find(params[:member_id])
+    authorize! :suspend, @member
     if request.put?
       respond_to do |format|
       @member.suspend = true

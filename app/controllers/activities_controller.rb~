@@ -4,7 +4,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.where(:hdn_boolean => false)
+    @activities = Activity.where(:hdn_boolean => nil)
     @acti = Activity.where(:hdn_boolean => true)
   end
 

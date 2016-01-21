@@ -25,7 +25,8 @@
         - if user_signed_in?
           - if current_user.role == 'clerk'
             - if  member.clerk_flag == nil && member.admin_flag == nil
-              %td= link_to 'Approve on clerk level and send to admin for verification', new_member_document_path(member)
+              - if can? :clerklevel, member
+                %td= link_to 'Approve on clerk level and send to admin for verification', new_member_document_path(member)
           - elsif current_user.role == 'admin'
             - if member.clerk_flag == true && member.admin_flag == nil
               %td= link_to 'Verify / confirm membership', adminlevel_path(member)
@@ -34,4 +35,12 @@
           - if current_user.role == 'admin'
             %td= link_to "Make defaulter / invalid this member", suspend_path(member)
   - else
-    %b= current_user.member.membership_no
+    %tr
+      - if current_user.member.personalinfo != nil
+        %td= current_user.member.personalinfo.last_name.capitalize + ' ' + current_user.member.personalinfo.first_name.capitalize + ' ' + current_user.member.personalinfo.middle_name.capitalize
+      - else
+        %td wrong application
+      %td= current_user.member.membership_no
+      %td= current_user.member.membership_class
+      %td= link_to 'View full membership details', current_user.member
+

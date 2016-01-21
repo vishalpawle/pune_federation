@@ -45,5 +45,5 @@
         %td= link_to 'Destroy', scriberequest, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'Apply for scribe ', new_scriberequest_path
+- if user_signed_in? && current_user.role == 'member'
+  = link_to 'Apply for scribe ', new_scriberequest_path

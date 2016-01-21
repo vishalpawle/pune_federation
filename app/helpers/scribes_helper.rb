@@ -1,0 +1,2 @@
+module ScribesHelper
+end

@@ -1,5 +1,6 @@
 class DonationsController < ApplicationController
-  before_action :set_donation, only: [:show, :edit, :update, :destroy]
+#  before_action :set_donation, eccept: [:create ]
+
 
   # GET /donations
   # GET /donations.json
@@ -28,7 +29,13 @@ class DonationsController < ApplicationController
 
     respond_to do |format|
       if @donation.save
-        format.html { redirect_to @donation, notice: 'Donation was successfully created.' }
+        donation = @donation
+        if donation.donar_email != ''
+          UserMailer.donar(donation).deliver_now
+        end
+        user = User.where(:role => 'admin').collect(&:email)
+        UserMailer.admindonar(user).deliver_now
+        format.html { redirect_to root_url, notice: 'Thank you for supporting us we will contact you vary soon!!!' }
         format.json { render :show, status: :created, location: @donation }
       else
         format.html { render :new }

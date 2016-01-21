@@ -7,7 +7,22 @@ class Ability
        user ||= User.new # guest user (not logged in)
        if user.role == 'admin'
          can :manage, :all
+      cannot :clerklevel, Member
+      cannot :manage, Document
+    elsif user.role == 'clerk'
+     can :manage, :all
+      cannot :tempdelete, Member
+      cannot :suspend, Member
+      cannot :adminlevel, Member
+      cannot :chengerole, Member
+
+    elsif user.role == 'member'
+      can :read, :all
+      can :create, Scriberequest
+      can :create, Member
        else
+      can :create, Member
+
          can :read, :all
        end
     #

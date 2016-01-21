@@ -5,6 +5,7 @@
     - if user_signed_in?
       = f.input :member_name, :input_html => {:value => current_user.member.personalinfo.first_name.capitalize + ' ' + current_user.member.personalinfo.last_name.capitalize}, :readonly => true
       = f.input :member_email, :input_html => {:value => current_user.member.contactinfo.email}, :readonly => true
+
       = f.input :member_mobile, :input_html => {:value => current_user.member.contactinfo.mobile_no}, :readonly => true
     - else
       = f.input :member_name, :input_html => {"aria-required" => "true"}

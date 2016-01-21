@@ -1,4 +1,5 @@
 class ContentsController < ApplicationController
+
   def dream
     @content = Content.where(:dream => true).last
   end
@@ -7,6 +8,7 @@ class ContentsController < ApplicationController
   end
   def new
     @content = Content.new
+    authorize! :new, @content
   end
   def edit
     @content = Content.find(params[:id])

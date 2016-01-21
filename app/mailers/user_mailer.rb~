@@ -43,9 +43,17 @@ class UserMailer < ApplicationMailer
     @member = member
     mail(:from => 'noreplytonfbmpune@gmail.com', :to => @mailwalababa, :subject => 'Intimation regarding your membership', :template_path => 'user_mailer', :template_name => 'adminlevel')
   end
-  def message(user, message)
+  def patangrav(user, message)
     @user = user
     @message = message
     mail(:from => 'noreplytonfbmpune@gmail.com', :to => @user, :subject => 'New message leave by a guest user', :template_path => 'user_mailer', :template_name => 'message')
+  end
+  def donar(donation)
+    @donation = donation
+    mail(:from => 'noreplytonfbmpune@gmail.com', :to => @donation.donar_email, :subject => "Donation acknowledgement", :template_path => 'user_mailer', :template_name => 'donar')
+  end
+  def admindonar(user)
+    @user = user
+    mail(:from => 'noreplytonfbmpune@gmail.com', :to => @user, :subject => 'Donation request', :template_path => 'user_mailer', :template_name => 'admindonar')
   end
 end

@@ -1,0 +1,51 @@
+%p#notice= notice
+
+%p
+  %b Donar name:
+  = @donation.donar_name
+%p
+  %b Donar email:
+  = @donation.donar_email
+%p
+  %b Donar mobile:
+  = @donation.donar_mobile
+%p
+  %b To project:
+  = @donation.to_project
+%p
+  %b How did you find us:
+  = @donation.how_did_you_find_us
+%p
+  %b Donation comment:
+  = @donation.donation_comment
+%p
+  %b Account flag:
+  = @donation.account_flag
+%p
+  %b Bank name:
+  = @donation.bank_name
+%p
+  %b Account no:
+  = @donation.account_no
+%p
+  %b Ifsc code:
+  = @donation.ifsc_code
+%p
+  %b Dd name:
+  = @donation.dd_name
+%p
+  %b Followup with donar:
+  = @donation.followup_with_donar
+%p
+  %b Donation remarks:
+  = @donation.donation_remarks
+%p
+  %b Receive donation:
+  = @donation.receive_donation
+%p
+  %b Donation amount:
+  = @donation.donation_amount
+
+= link_to 'Edit', edit_donation_path(@donation)
+\|
+= link_to 'Back', donations_path

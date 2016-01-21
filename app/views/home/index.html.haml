@@ -1,12 +1,24 @@
-%p#notice= notice
-%h1 Wellcome to National blind federation of pune region...
+%h1 WELLCOME TO NATIONAL FEDERATION OF THE BLIND MAHARASHTRA - PUNE REGION!
+%p
+  %b National federation of the blind is an NGO, of the blind, for the blind and by the blind. It is a democratic, social , cultural,  and non-political organization. Pune region is the first regional unit of NFBM Maharashtra.
+%br/
+%p
+  %strong Our moto is opportunity, Equality and security.
+  We dream to live with dignity and honour in the society which is absolutely free from the shackles of discrimination of any kind be it religious, social and educational on the grounds of disability. We do not ask for sympathy but only opportunity.
+%br/
+%p The organization was formed on 5th June 1977. It’s root lay in pre-independence era. The organization was initially formed in the USA by Prof. Jekoves Tenbrook in the year 1940. By drawing inspiration from it’s mother organization, Kerala Federation of the blind was started in India in the year 1967. In the year 1969, the then blind Graduate forum of India was re-named as National Federation of the blind India.
+%br/
+%p
+  %b NFBM Pune is the first regional unit of the organization. It was started on 15th August 1977. The first president was R.N. Gulani. The general secretary was Gopal Sankpal. The treasurer was Dr. Abdul Salam.
+  The regional unit Pune operates in Pune, Solapur, Satara, Sangli and Kolhapur.
+%br/
+%p Each district has it’s own unit. The Pune regional unit has been tirelessly working since 1977 for the upliptment and welfare of it’s members. Thanks to support of the organization, thousands of blind members have secured jobs in the government as well as private sectors. More than thousand members of the region have received initial capital to start their business. The organization acts as an intermediary between government and persons with blindness.
 
 - if user_signed_in?
   - if current_user.role == 'admin' && @user.count == 0
     %strong
       Dear Admin,  "We are not showing tirms and conditions for membership form. Please generate that page belows link before navigating anywhere."
       = link_to "Genarate page", tirmcontent_path
-
 
 %h2 Events
 %br

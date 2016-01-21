@@ -2,7 +2,10 @@ require 'prawn'
 require 'htmltoword'
 require 'prawn/table'
 class MembersController < ApplicationController
+#  load_and_authorize_resource :eccept => [:new, :create, :tirmsconditions]
+
   def index
+
     if user_signed_in?
       if current_user.role == 'admin' || current_user.role == 'clerk'
         @members = Member.where(:suspend => nil).where(:delete_flag =>  nil)
@@ -13,8 +16,28 @@ class MembersController < ApplicationController
   end
   def laststape
   end
+  def tempdelete
+    @member = Member.find(params[:member_id])
+    authorize! :tempdelete, @member
+    if request.put?
+      respond_to do |format|
+      @member.delete_flag = true
+      if @member.save
+        if @member.user != nil
+          User.destroy(@member.user)
+        end
+        format.html {redirect_to members_path, notice: 'Member deleted successfully!' }
+      else
+        format.html { redirect_to members_path, notice: 'unaible to process try again '}
+      end
+      end
+    end
+  end
+
   def clerklevel
     @member = Member.find(params[:member_id])
+    authorize! :tempdelete, @member
+
     if request.put?
 
       @member.receipt_no = params[:receipt_no]

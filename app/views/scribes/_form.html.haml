@@ -1,0 +1,13 @@
+= simple_form_for @scribe, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :first_name
+  = f.error_span :first_name
+  = f.input :last_name
+  = f.error_span :last_name
+  = f.input :email
+  = f.error_span :email
+  = f.input :mobile
+  = f.error_span :mobile
+  = f.input :qualification
+  = f.error_span :qualification
+  = f.submit "Register", :class => 'btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), root_path, :class => 'btn btn-default'

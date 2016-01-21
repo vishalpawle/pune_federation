@@ -48,4 +48,16 @@ class UserMailer < ApplicationMailer
     @message = message
     mail(:from => 'noreplytonfbmpune@gmail.com', :to => @user, :subject => 'New message leave by a guest user', :template_path => 'user_mailer', :template_name => 'message')
   end
+  def donar(donation)
+    @donation = donation
+    mail(:from => 'noreplytonfbmpune@gmail.com', :to => @donation.donar_email, :subject => "Donation acknowledgement", :template_path => 'user_mailer', :template_name => 'donar')
+  end
+  def admindonar(user)
+    @user = user
+    mail(:from => 'noreplytonfbmpune@gmail.com', :to => @user, :subject => 'Donation request', :template_path => 'user_mailer', :template_name => 'admindonar')
+  end
+  def dasaram(scribe)
+    @scribe = scribe
+    mail(:from => 'noreplytonfbmpune@gmail.com', :to => @scribe.email, :subject => 'successful Registration for scribe', :template_path => 'user_mailer', :template_name => 'dasaram')
+  end
 end

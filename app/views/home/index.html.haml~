@@ -1,5 +1,4 @@
-%p#notice= notice
-%h1 Wellcome to National blind federation of pune region...
+%h1 WELLCOME TO NATIONAL FEDERATION OF THE BLIND MAHARASHTRA - PUNE REGION!
 
 - if user_signed_in?
   - if current_user.role == 'admin' && @user.count == 0
@@ -7,15 +6,14 @@
       Dear Admin,  "We are not showing tirms and conditions for membership form. Please generate that page belows link before navigating anywhere."
       = link_to "Genarate page", tirmcontent_path
 
-
 %h2 Events
 %br
-%ol
+%ul
   - @activity.each do |a|
     %li= link_to a.activity_title, activity_path(a)
 %h2 Board of directors
 %br
-%ol
+%ul
   - @team.each do |t|
     %li= link_to t.name + ' - '   + t.post, team_path(t)
 

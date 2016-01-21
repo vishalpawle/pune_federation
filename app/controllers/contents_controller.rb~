@@ -1,4 +1,12 @@
 class ContentsController < ApplicationController
+  load_and_authorize_resource
+
+  def dream
+    @content = Content.where(:dream => true).last
+  end
+  def about
+    @content = Content.where(:about_flag => true).last
+  end
   def new
     @content = Content.new
   end

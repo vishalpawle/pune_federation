@@ -1,0 +1,7 @@
+%h1 New scriberequest
+- if user_signed_in?
+  - if current_user.role == 'member'
+    %div{"aria-form" => "true"}
+      = render 'form'
+
+= link_to 'Back', scriberequests_path

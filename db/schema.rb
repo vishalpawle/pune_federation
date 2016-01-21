@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160117100400) do
+ActiveRecord::Schema.define(version: 20160119192442) do
 
   create_table "activities", force: :cascade do |t|
     t.text     "anual_activity",        limit: 65535
@@ -417,6 +417,16 @@ ActiveRecord::Schema.define(version: 20160117100400) do
   end
 
   add_index "scriberequests", ["member_id"], name: "index_scriberequests_on_member_id", using: :btree
+
+  create_table "scribes", force: :cascade do |t|
+    t.string   "first_name",    limit: 255
+    t.string   "last_name",     limit: 255
+    t.string   "email",         limit: 255
+    t.string   "mobile",        limit: 255
+    t.string   "qualification", limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "serviceinfos", force: :cascade do |t|
     t.boolean  "member_braille_books_circulating_library"

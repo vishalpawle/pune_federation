@@ -3,16 +3,19 @@
 
   .form-inputs
     - if user_signed_in?
-      = f.input :member_name, :input_html => {:value => current_user.member.personalinfo.first_name.capitalize + ' ' + current_user.member.personalinfo.last_name.capitalize}, :readonly => true
-      = f.input :member_email, :input_html => {:value => current_user.member.contactinfo.email}, :readonly => true
-      = f.input :member_mobile, :input_html => {:value => current_user.member.contactinfo.mobile_no}, :readonly => true
+      - if current_user.member.personalinfo != nil
+        = f.input :member_name, :input_html => {:value => current_user.member.personalinfo.first_name.capitalize + ' ' + current_user.member.personalinfo.last_name.capitalize}, :readonly => true
+      - if current_user.member.contactinfo != nil
+        = f.input :member_email, :input_html => {:value => current_user.member.contactinfo.email}, :readonly => true
+      - if current_user.member.contactinfo != nil
+
+        = f.input :member_mobile, :input_html => {:value => current_user.member.contactinfo.mobile_no}, :readonly => true
     - else
       = f.input :member_name, :input_html => {"aria-required" => "true"}
       = f.input :member_email
       = f.input :member_mobile, :input_html => {"aria-required" => "true"}
     = f.input :exam_start_date, as: :string, input_html:  {type: :date,  :value => Time.now.to_date.to_s, order:  [:day, :month, :year], "aria-required" => "true"}, :hint => "Date should be in DD/MM/YYYY format"
     = f.input :exam_end_date,  as: :string, input_html:  {type: :date,  :value => Time.now.to_date.to_s, order:  [:day, :month, :year], "aria-required" => "true"}, :hint => "Date should be in DD/MM/YYYY format"
-    = f.input :exam_duration
     = f.input :exam_start_time, :as => :time
     = f.input :exam_end_time, :as => :time
     = f.input :type_of_exam, :collection => ['Board exam such as, (10th / 12th)', 'Exam for 1st / 2nd / 3rd year of your graduation', 'Exam for 1st / 2nd year of your post graduation', 'Exam for any other course', 'Exam for banking / Insurance sector', 'Exam for government sector such as, (UPSC / MPSC / railway / etc', 'Any other'], :prompt => 'Please select type of exam'

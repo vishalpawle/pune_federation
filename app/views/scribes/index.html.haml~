@@ -1,0 +1,4 @@
+- if user_signed_in? && current_user.role == 'admin'
+  = render 'para'
+- else
+  You have no access

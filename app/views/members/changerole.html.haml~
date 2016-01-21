@@ -1,8 +1,5 @@
-%h1 Change role of #{@user.member.personalinfo.first_name.capitalize + ' ' + @user.member.personalinfo.last_name.capitalize}
-= simple_form_for changerole_path, method: :put do |f|
-  %div{"role" => "form"}
-    .form-inputs
-      = select_tag "role", options_for_select(["admin", "clerk", "member"]), :prompt => "Select role"
-    .form-action
-      = submit_tag "Change role"
-      = link_to 'Back', members_path
+- if user_signed_in?
+  - if current_user.role == 'member' || current_user.role == 'clerk'
+    %b You are trying to inject our side! We have send your details to admin team, and now they can take legal action on you.
+  - else
+    = render 'change'

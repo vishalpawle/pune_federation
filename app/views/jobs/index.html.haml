@@ -20,4 +20,5 @@
 
 %br
 - if user_signed_in? && current_user.role == 'admin'
-  = link_to 'New Job', new_job_path
+  - if can? :create, Job
+    = link_to 'New Job', new_job_path

@@ -1,5 +1,8 @@
 %h1 Dream:
 %br
-= raw @content.dream_content
+- if @content != nil
+  = raw @content.dream_content
+- else
+  %b Empty page
 %br
 = link_to "Home", root_url

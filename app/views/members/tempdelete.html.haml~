@@ -1,0 +1,6 @@
+- con_for :title, "Delete | National federation of the blind maharashtra - pune region"
+= simple_form_for tempdelete_path, method: :put do |f|
+  %b Your about to delete member #{@member.membership_no}. Are you sure to proceed?
+  .form-action
+    = submit_tag 'Yes'
+    = link_to 'No', members_path

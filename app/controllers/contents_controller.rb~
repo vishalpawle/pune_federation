@@ -1,5 +1,4 @@
 class ContentsController < ApplicationController
-  load_and_authorize_resource
 
   def dream
     @content = Content.where(:dream => true).last
@@ -9,6 +8,7 @@ class ContentsController < ApplicationController
   end
   def new
     @content = Content.new
+    authorize! :new, @content
   end
   def edit
     @content = Content.find(params[:id])

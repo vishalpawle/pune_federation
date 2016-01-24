@@ -21,4 +21,4 @@
 
 %br
 - if user_signed_in? && current_user.role == 'admin'
-  = link_to "Add team's info", new_teams_path
+  = link_to "Add team's info", new_team_path

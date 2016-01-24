@@ -1,5 +1,6 @@
-%h1 New personalinfo
-
-= render 'form'
-
+%h1 Personal Information:
+%br
+%div{"role" => "form"}
+  = render 'form'
+%br
 = link_to 'Back'

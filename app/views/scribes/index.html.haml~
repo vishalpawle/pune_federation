@@ -1,4 +1,7 @@
-- if user_signed_in? && current_user.role == 'admin'
-  = render 'para'
+- if user_signed_in?
+  - if current_user.role == 'admin'
+    = render 'para'
+  - else
+    %b You have no access
 - else
   You have no access

@@ -18,7 +18,7 @@
   %li You are able to take benefit all facilities of "Pune blind federation", after confirmming your account by admin team.
   %li Please note all abub points, and do acording to that.
 %br
-- @user != nil
+- if @user != nil
   = button_to "I agree", new_member_path, :class => "button", :method => :get
 \|
 = button_to "I disagree", root_path, :class => "button", :method => :get

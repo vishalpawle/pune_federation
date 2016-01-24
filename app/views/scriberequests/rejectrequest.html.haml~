@@ -9,3 +9,13 @@ You are rejecting the request of #{@scriberequest.member_name.capitalize} . So t
     .form-action
       = submit_tag 'Reject'
       = link_to 'Back', scriberequests_path
+:javascript
+  function chkform() {
+  if( document.getElementById('rejection_reason').value == '') {
+  alert('Rejection box should not be empty! ');
+  document.getElementById('rejection_reason').focus();
+  return false;
+  }
+
+  return true;
+  }

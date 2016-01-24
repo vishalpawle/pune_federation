@@ -1,5 +1,8 @@
-%h1 New disabilityinfo
-
-= render 'form'
-
+- content_for :title, "Disability related information | National federation of the blind maharashtra - pune region"
+%h1 Information related your disability
+%div#h
+%br
+%div{"role" => "form"}
+  = render 'form'
+%br
 = link_to 'Back', member_disabilityinfos_path

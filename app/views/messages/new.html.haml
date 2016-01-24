@@ -1,4 +1,34 @@
-%h1 New message
+- content_for :title, "Your message | National federation of the blind maharashtra - pune region"
+%h1 Address for Pune branch:
+%br
+%i The National Federation of the Blind, Maharashtra - pune branch
+%br
+Block B - 13 , Nehru Stadium , Swargate Pune - 411009
+%br
+Phone:
+%a{:href => "tel:02024445494"} 020-24445494
+\|
+%a{:href => "tel:+919922150643"} +919922150643
+\|
+%a{:href => "tel:+919226132932"} +919226132932
+\|
+%a{:href => "tel:+919881012931"} +919881012931
+\|
+%a{:href => "tel:+919850884448"} +919850884448
+
+
+
+%br
+E-mail:
+%a{:href => "mailto:nfbmpune15@gmail.com?Subject=Hello%20", :target => "_top"} nfbmpune15@gmail.com
+%br
+%h2 Your message:
+%p
+  Thank you for contacting with us! Just complete the belows form, and our team will connect very soon to you.
+  %br
+  In this form, you can put your feedback / suggestion / query.
+%br
+
 %div{"role" => "form"}
   = render 'form'
 

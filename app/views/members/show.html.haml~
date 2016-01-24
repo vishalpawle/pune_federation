@@ -244,7 +244,7 @@ E-mail:
     = @member.membership_no
 %br
 - if @member.documentinfo != nil
-  = image_tag @member.documentinfo.signature.url(:thum), :alt => "Member's signature"
+  = image_tag @member.documentinfo.signature.url(:medium), :alt => "Member's signature"
 %br
 %a{:href => "#", :onclick => "window.print();return false;"} print me
 = link_to "Back", members_path

@@ -1,4 +1,5 @@
-%h1 Listing circulars
+- content_for :title, "All circulars | National federation of the blind maharashtra - pune region"
+%h1 All circulars
 %h2 Banking circulars
 %table
   %thead
@@ -116,35 +117,9 @@
           %td= c.circular_discription
           %td= link_to "Download this circular", c.attachment_url
 %br
-%h2 Circculars for office berrors / executive members
-%table
-  %thead
-    %tr
-      %th Short Discription about circular
-      %th Action
-  %tbody
-    - if @c8 != nil
-      - @c8.each do |c|
-        %tr
-          %td= c.circular_discription
-          %td= link_to "Download this circular", c.attachment_url
 
-%table
-  %thead
-    %tr
-      %th Short discription of circular
-      %th
-      %th
-      %th
+- if user_signed_in?
+  - if current_user.role == 'admin'
 
-  %tbody
-    - @circulars.each do |circular|
-      %tr
-        %td= circular.circular_discription
-        %td= link_to 'Show', circular
-        %td= link_to 'Edit', edit_circular_path(circular)
-        %td= link_to 'Destroy', circular, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    = render 'circu'
 
-%br
-- if user_signed_in? && current_user.role == 'admin'
-  = link_to 'New Circular', new_circular_path

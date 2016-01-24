@@ -1,5 +1,5 @@
 %h1 Approve scribe request page
-= simple_form_for approverequest_path, method: :put do |f|
+= simple_form_for approverequest_path, :html => {'onsubmit' => 'return checkform()'}, method: :put do |f|
   %div{"role" => "form"}
     = label_tag "Scribe first name"
     = text_field_tag 'scribe_first_name'
@@ -13,4 +13,22 @@
       = submit_tag "Approve scribe request"
     = link_to "Back", scriberequests_path
 
-
+:javascript
+  function checkform() {
+  if (document.getElementById('scribe_first_name').value == '') {
+  alert('First name of scribe must be entered!');
+  document.getElementById('scribe_first_name').focus();
+  return false;
+  }
+  if( document.getElementById('scribe_last_name').value == '' ) {
+  alert('Last name of scribe must be entered!');
+  document.getElementById('scribe_last_name').focus();
+  return false;
+  }
+  if( document.getElementById('scribe_mobile').value == '' ) {
+  alert('Mobile no must be entered!');
+  document.getElementById('scribe_mobile').focus();
+  return false;
+  }
+  return true;
+  }

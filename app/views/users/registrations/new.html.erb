@@ -1,3 +1,4 @@
+<%- content_for :title, "Sign up | National federation of the blind maharashtra - pune region" %>
 <h2>Sign up</h2>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {"onsubmit" => "return ckpassword()"})   do |f| %>
   <%= f.error_notification %>

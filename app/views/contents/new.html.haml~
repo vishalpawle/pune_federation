@@ -1,0 +1,5 @@
+%h1 Setup content for website:
+%div{"role" => "form"}
+  = render 'form'
+%br
+= link_to "Back to home", root_url

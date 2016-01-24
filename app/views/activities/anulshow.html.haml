@@ -1,9 +1,12 @@
+- content_for :title, "Anual activities | National federation of the blind maharashtra - pune region"
 %h1 Anual Activities
 %p
   - if @activity != nil
     = raw @activity.anual_activity
     %br
-    = link_to "update this content", anulupdate_path(@activity.id)
+    - if user_signed_in?
+      - if current_user.role == 'admin'
+        = link_to "update this content", anulupdate_path(@activity.id)
   - else
     %strong Content is not provided by admin team.
 

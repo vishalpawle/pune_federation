@@ -1,3 +1,5 @@
+- content_for :title, "Generate activity page | National federation of the blind maharashtra - pune region"
+= javascript_include_tag Ckeditor.cdn_url
 %h1 Generate Activity page.
 %br
 = simple_form_for anulgenerate_path, method: :post do |f|

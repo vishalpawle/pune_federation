@@ -9,7 +9,7 @@
   %b= @member.membership_no
 %br
 
-= simple_form_for clerklevel_path, :html => {"onsubmit" => "return ckform()", method: :put do |f|
+= simple_form_for clerklevel_path, :html => {"onsubmit" => "return ckform()"}, method: :put do |f|
   %div{"role" => "form"}
     .form-inputs
       = label_tag "Receipt number"

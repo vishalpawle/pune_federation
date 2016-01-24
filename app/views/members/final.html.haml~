@@ -65,7 +65,7 @@ Phone:
 %br
 E-mail:
 %a{:href => "mailto:nfbmpune15@gmail.com?Subject=Hello%20", :target => "_top"} nfbmpune15@gmail.com
-= @member.membership_no
-= @member.personalinfo.first_name.capitalize
+%b
+  Please download your chalun belows link and submit to us.
 \|
-= link_to "Download Chalan", member_path(@member, :format => 'pdf')
+= link_to "Download Chalun", member_path(@member, :format => 'pdf')

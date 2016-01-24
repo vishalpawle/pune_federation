@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
+#  load_and_authorize_resource
 
   # GET /activities
   # GET /activities.json
@@ -16,10 +17,12 @@ class ActivitiesController < ApplicationController
   # GET /activities/new
   def new
     @activity = Activity.new
+    authorize! :new, @activity
   end
 
   # GET /activities/1/edit
   def edit
+    authorize! :edit, @activity
   end
 
   # POST /activities
@@ -55,6 +58,7 @@ class ActivitiesController < ApplicationController
   # DELETE /activities/1
   # DELETE /activities/1.json
   def destroy
+    authorize! :destroy, @activity
     @activity.destroy
     respond_to do |format|
       format.html { redirect_to activities_url, notice: 'Activity was successfully destroyed.' }
@@ -66,6 +70,7 @@ class ActivitiesController < ApplicationController
   end
   def anulupdate
     @activity = Activity.find(params[:activity_id])
+    authorize! :anulupdate, @activity
     if request.put?
     @activity.anual_activity = params[:anual]
     if @activity.save

@@ -12,6 +12,7 @@ class ContentsController < ApplicationController
   end
   def edit
     @content = Content.find(params[:id])
+    authorize! :edit, @content
   end
   def create
     @content = Content.new(content_params)

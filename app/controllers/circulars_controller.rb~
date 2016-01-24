@@ -1,5 +1,6 @@
 class CircularsController < ApplicationController
   before_action :set_circular, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /circulars
   # GET /circulars.json

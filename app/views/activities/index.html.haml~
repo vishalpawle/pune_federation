@@ -23,5 +23,5 @@
 
 - if user_signed_in? && current_user.role == 'admin'
   = link_to 'New Activity', new_activity_path
-    - if @acti.count == 0
-      = link_to 'Generate anual activity page', anulgenerate_path
+  - if @acti.count == 0
+    = link_to 'Generate anual activity page', anulgenerate_path

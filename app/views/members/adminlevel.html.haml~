@@ -56,4 +56,4 @@
       %li= link_to "Recheck entire application", member_path(@member.id)
       %li= link_to "Make invalid / default to this member", suspend_path(@member.id)
       %strong Displeased with this membership application?
-      %li= link_to "Delete / Reject", @member, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %li= link_to "Delete / Reject", tempdelete_path(@member.id),  :data => { :confirm => 'You have selected delete action!' }

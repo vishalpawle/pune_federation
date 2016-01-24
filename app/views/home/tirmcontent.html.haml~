@@ -1,3 +1,4 @@
+= javascript_include_tag Ckeditor.cdn_url
 %h1 Generate Tirms and conditions page for membership form:
 = simple_form_for tirmcontent_path, method: :put do |f|
   .form-input

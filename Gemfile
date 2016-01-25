@@ -18,6 +18,13 @@ gem "nested_form"
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'htmltoword'
 
+gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rails', '~> 1.1.1'
+
+# Add this if you're using rbenv
+gem 'capistrano-rbenv', github: "capistrano/rbenv"
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

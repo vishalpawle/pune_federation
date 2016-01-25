@@ -51,4 +51,4 @@ production:
   <<: *default
   database: pune_federation_production
   username: pune_federation
-  password: "mymob" #<%= ENV['PUNE_FEDERATION_DATABASE_PASSWORD'] %>
+  password: <%= ENV['PUNE_FEDERATION_DATABASE_PASSWORD'] %>

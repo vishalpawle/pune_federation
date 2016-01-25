@@ -20,7 +20,6 @@ set :rbenv_ruby, '2.0.0-p451'
 #   https://github.com/capistrano/rails
 #
 # require 'capistrano/rvm'
- require 'capistrano/rbenv'
 # require 'capistrano/chruby'
 # require 'capistrano/bundler'
  require 'capistrano/rails/assets'

@@ -42,6 +42,18 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml')
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :deploy do
+  desc "Create database and database user"
+  task :create_mysql_database do
+    ask :db_root_password, ''
+    ask :db_name, fetch(:application)
+    ask :db_user, 'vishal'
+    ask :db_pass, ''
+
+    on primary fetch(:migration_role) do
+      execute "mysql --user=root --password=#{fetch(:db_root_password)} -e \"CREATE DATABASE IF NOT EXISTS #{fetch(:db_name)}\""
+      execute "mysql --user=root --password=#{fetch(:db_root_password)} -e \"GRANT ALL PRIVILEGES ON #{fetch(:db_name)}.* TO '#{fetch(:db_user)}'@'localhost' IDENTIFIED BY '#{fetch(:db_pass)}' WITH GRANT OPTION\""
+    end
+  end
 
   desc 'Restart application'
   task :restart do

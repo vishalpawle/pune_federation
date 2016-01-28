@@ -1,8 +1,9 @@
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:vishalpawle/pune_federation.git'
+#set :application, 'pune_federation'
+
+set :repo_url, 'git@github.com:vishalpawle/pune_federation.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
@@ -36,7 +37,8 @@ set :repo_url, 'git@example.com:vishalpawle/pune_federation.git'
 
 set :deploy_to, '/home/vishal/pune_federation'
 
-set :linked_files, %w{config/database.yml}
+set :linked_files, fetch(:linked_files, []).push('config/database.yml')
+#set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :deploy do

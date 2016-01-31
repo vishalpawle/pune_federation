@@ -1,8 +1,7 @@
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
-#set :application, 'pune_federation'
-
+set :application, 'pune_federation'
 set :repo_url, 'git@github.com:vishalpawle/pune_federation.git'
 
 # Default branch is :master
@@ -24,7 +23,7 @@ set :repo_url, 'git@github.com:vishalpawle/pune_federation.git'
 # set :pty, true
 
 # Default value for :linked_files is []
-# set :linked_files, %w{config/database.yml}
+#set :linked_files, %w{config/database.yml}
 
 # Default value for linked_dirs is []
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
@@ -37,29 +36,17 @@ set :repo_url, 'git@github.com:vishalpawle/pune_federation.git'
 
 set :deploy_to, '/home/vishal/pune_federation'
 
-set :linked_files, fetch(:linked_files, []).push('config/database.yml')
 #set :linked_files, %w{config/database.yml}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+#set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :shared_paths, ['config/mongoid.yml', 'tmp']
 
 namespace :deploy do
-  desc "Create database and database user"
-  task :create_mysql_database do
-    ask :db_root_password, ''
-    ask :db_name, fetch(:application)
-    ask :db_user, 'vishal'
-    ask :db_pass, ''
-
-    on primary fetch(:migration_role) do
-      execute "mysql --user=root --password=#{fetch(:db_root_password)} -e \"CREATE DATABASE IF NOT EXISTS #{fetch(:db_name)}\""
-      execute "mysql --user=root --password=#{fetch(:db_root_password)} -e \"GRANT ALL PRIVILEGES ON #{fetch(:db_name)}.* TO '#{fetch(:db_user)}'@'localhost' IDENTIFIED BY '#{fetch(:db_pass)}' WITH GRANT OPTION\""
-    end
-  end
 
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
-      execute :touch, release_path.join('tmp/restart.txt')
+      #execute :touch, release_path.join('tmp/restart.txt')
 
       # execute :touch, release_path.join('tmp/restart.txt')
     end
@@ -73,6 +60,8 @@ namespace :deploy do
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
+      execute :mkdir, '-p', "#{ release_path }/tmp"
+      execute :touch, release_path.join('tmp/restart.txt')
     end
   end
 

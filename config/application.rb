@@ -24,5 +24,17 @@ module PuneFederation
     config.active_record.raise_in_transactional_callbacks = true
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
 
+    config.before_configuration do
+      env_file = File.join(Rails.root, 'config', 'environment.yml')
+
+      environment_yml = YAML.load(File.open(env_file)).detect do |key, value|
+        Rails.env == key.to_s
+      end if File.exist?(env_file)
+
+      environment_yml.last.each do |key,value|
+        ENV[key.to_s] = value
+      end if environment_yml.present?
+    end
+
   end
 end

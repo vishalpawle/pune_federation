@@ -38,7 +38,7 @@ set :deploy_to, '/home/vishal/pune_federation'
 
 #set :linked_files, %w{config/database.yml}
 #set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-set :shared_paths, ['config/mongoid.yml', 'tmp']
+set :shared_paths, ['config/database.yml', 'tmp']
 
 namespace :deploy do
 
@@ -47,8 +47,7 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
       #execute :touch, release_path.join('tmp/restart.txt')
-
-      # execute :touch, release_path.join('tmp/restart.txt')
+      execute "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     end
   end
 

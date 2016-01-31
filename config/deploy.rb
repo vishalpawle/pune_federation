@@ -38,8 +38,7 @@ set :deploy_to, '/home/vishal/pune_federation'
 
 #set :linked_files, %w{config/database.yml}
 #set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-set :shared_paths, ['config/database.yml', 'tmp']
-
+set :shared_paths, ['config', 'tmp']
 namespace :deploy do
 
   desc 'Restart application'
@@ -48,10 +47,15 @@ namespace :deploy do
       # Your restart mechanism here, for example:
       #execute :touch, release_path.join('tmp/restart.txt')
       execute "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+      execute "ln -nfs #{shared_path}/config/environment.yml #{release_path}/config/environment.yml"
     end
   end
 
   after :publishing, :restart
+
+## TODO
+  #db:migrate
+  #
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do

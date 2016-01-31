@@ -106,15 +106,6 @@ ActiveRecord::Schema.define(version: 20160119192442) do
 
   add_index "contactinfos", ["member_id"], name: "index_contactinfos_on_member_id", using: :btree
 
-  create_table "contacts", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "email",      limit: 255
-    t.string   "phone",      limit: 255
-    t.text     "query",      limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
-
   create_table "contents", force: :cascade do |t|
     t.text     "dream_content", limit: 65535
     t.boolean  "about"

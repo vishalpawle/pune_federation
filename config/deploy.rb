@@ -32,7 +32,7 @@ set :repo_url, 'git@github.com:vishalpawle/pune_federation.git'
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 2
 
 set :deploy_to, '/home/vishal/pune_federation'
 

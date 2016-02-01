@@ -74,6 +74,6 @@ class ScribesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def scribe_params
-      params.require(:scribe).permit(:first_name, :last_name, :email, :mobile, :qualification)
+      params.require(:scribe).permit(:first_name, :last_name, :email, :mobile, :qualification, :type_join)
     end
 end

@@ -9,5 +9,7 @@
   = f.error_span :mobile
   = f.input :qualification
   = f.error_span :qualification
+  = f.input :type_join, :label => "What would you like to become with us",  :collection => ["Scribe", "Volunteer", "Both"], as: :radio_buttons
+  = f.error_span :type_join
   = f.submit "Register", :class => 'btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), root_path, :class => 'btn btn-default'

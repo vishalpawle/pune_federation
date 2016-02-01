@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :scribes
+  resources :messages
   resources :jobs
   resources :donations
   resources :scriberequests
@@ -45,6 +47,9 @@ match '/tirmcontent' => 'home#tirmcontent', :via =>[:get, :put], as: :tirmconten
   # See how all your routes lay out with "rake routes".
 match '/anulshow' => 'activities#anulshow', :via => :get, as: :anulshow
 match '/activities/:activity_id/anulupdate' => 'activities#anulupdate', :via => [:get, :put], as: :anulupdate
+  match '/dream' => 'contents#dream', :via => :get, as: :dream
+  match '/about' => 'contents#about', :via => :get, as: :about
+
   match '/anulgenerate' => 'activities#anulgenerate', :via => [:get, :post], as: :anulgenerate
 resources :circulars
   match '/tirmsconditions' => 'members#tirmsconditions', :via => [:get, :put], as: :tirmsconditions

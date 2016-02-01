@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119192442) do
+ActiveRecord::Schema.define(version: 20160201153508) do
 
   create_table "activities", force: :cascade do |t|
     t.text     "anual_activity",        limit: 65535
@@ -326,6 +326,7 @@ ActiveRecord::Schema.define(version: 20160119192442) do
     t.boolean  "suspend"
     t.text     "suspend_remarks",                          limit: 65535
     t.boolean  "delete_flag"
+    t.boolean  "super_admin"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -417,6 +418,7 @@ ActiveRecord::Schema.define(version: 20160119192442) do
     t.string   "qualification", limit: 255
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "type_join",     limit: 255
   end
 
   create_table "serviceinfos", force: :cascade do |t|

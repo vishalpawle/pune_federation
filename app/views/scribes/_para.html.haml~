@@ -10,7 +10,7 @@
       %th= model_class.human_attribute_name(:email)
       %th= model_class.human_attribute_name(:mobile)
       %th= model_class.human_attribute_name(:qualification)
-      %th= model_class.human_attribute_name(:Intress)
+      %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @scribes.each do |scribe|
@@ -21,7 +21,7 @@
         %td= scribe.email
         %td= scribe.mobile
         %td= scribe.qualification
-        %td= scribe.type_join
+        %td=l scribe.created_at
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_scribe_path(scribe), :class => 'btn btn-default btn-xs'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), scribe_path(scribe), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'

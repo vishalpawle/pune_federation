@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :jobs
   resources :donations
   resources :scriberequests
-resources :members do
+resources :members, :shallow => true  do
   resources :documents
 
 

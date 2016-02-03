@@ -78,6 +78,6 @@
                 %li= link_to "Circulars", circulars_path, :data => { :confirm => 'You need login Credentials to access this page!' }
               %li= link_to "About Us", about_path
               %li= link_to "Future Dreams", dream_path
-              %li= link_to "Contact Us", 'messages/new'
+              %li= link_to "Contact Us", new_message_path
       %footer
         %p &copy NFBM Pune #{Date.today.year}

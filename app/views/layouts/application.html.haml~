@@ -25,7 +25,7 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        %a.navbar-brand(href="#") National federation for blind maharashtra - pune region
+        %a.navbar-brand(href="#") National federation of the blind maharashtra - pune region
         #skip
           %a{:href => "#content"} Skip to Main Content
         .navbar-collapse.collapse.navbar-responsive-collapse
@@ -34,7 +34,7 @@
           %ul.nav.navbar-nav
             %li= link_to "Home", root_path
             - if user_signed_in?
-              = link_to "Membership", members_path
+              %li= link_to "Membership", members_path
               %li= link_to 'sign out', destroy_user_session_path, :method => :delete
             - else
               %li= link_to "Take online membership", tirmsconditions_path
@@ -43,7 +43,9 @@
             - if user_signed_in?
               - if  current_user.role == 'admin'
                 %li= link_to 'New Activity', new_activity_path
-                = link_to "Registered scribes", scribes_path
+                %li= link_to "Registered scribes", scribes_path
+                %li= link_to "Donation requests", donations_path
+                %li= link_to "Messages by guest", messages_path
             - else
               %li= link_to "Latest  activities", activities_path
             %li= link_to "View our anual activities", anulshow_path

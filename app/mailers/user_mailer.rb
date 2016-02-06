@@ -58,6 +58,6 @@ class UserMailer < ApplicationMailer
   end
   def dasaram(scribe)
     @scribe = scribe
-    mail(:from => 'noreplytonfbmpune@gmail.com', :to => @scribe.email, :subject => 'successful Registration for scribe', :template_path => 'user_mailer', :template_name => 'dasaram')
+    mail(:from => 'noreplytonfbmpune@gmail.com', :to => @scribe.email, :subject => 'successful Registration with NFBMPune', :template_path => 'user_mailer', :template_name => 'dasaram')
   end
 end

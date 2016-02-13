@@ -4,7 +4,9 @@ class ServiceinfosController < ApplicationController
   # GET /serviceinfos
   # GET /serviceinfos.json
   def index
-    @serviceinfos = Serviceinfo.all
+    @member = Member.find(params[:member_id])
+
+    @serviceinfos = @member.serviceinfo
   end
 
   # GET /serviceinfos/1

@@ -4,7 +4,8 @@ class ContactinfosController < ApplicationController
   # GET /contactinfos
   # GET /contactinfos.json
   def index
-    @contactinfos = Contactinfo.all
+    @member = Member.find(params[:member_id])
+    @contactinfos = @member.contactinfo
   end
 
   # GET /contactinfos/1

@@ -32,7 +32,7 @@ class PersonalinfosController < ApplicationController
 
     respond_to do |format|
       if @personalinfo.save
-        format.html { redirect_to @personalinfo, notice: 'Personalinfo was successfully created.' }
+        format.html { redirect_to new_member_addressinfo_path(@personalinfo.member.id), notice: 'Personalinfo was successfully created.' }
         format.json { render :show, status: :created, location: @personalinfo }
       else
         format.html { render :new }

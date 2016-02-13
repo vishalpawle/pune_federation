@@ -1,37 +1,4 @@
-%h1 Listing serviceinfos
-
-%table
-  %thead
-    %tr
-      %th Member braille books circulating library
-      %th Self employment aid
-      %th Scholarship student aid scheme
-      %th Member of braille jagriti magazine
-      %th Placement services
-      %th Medical aid
-      %th Counselling services
-      %th Any others
-      %th Member
-      %th
-      %th
-      %th
-
-  %tbody
-    - @serviceinfos.each do |serviceinfo|
-      %tr
-        %td= serviceinfo.member_braille_books_circulating_library
-        %td= serviceinfo.self_employment_aid
-        %td= serviceinfo.scholarship_student_aid_scheme
-        %td= serviceinfo.member_of_braille_jagriti_magazine
-        %td= serviceinfo.placement_services
-        %td= serviceinfo.medical_aid
-        %td= serviceinfo.counselling_services
-        %td= serviceinfo.any_others
-        %td= serviceinfo.member
-        %td= link_to 'Show', serviceinfo
-        %td= link_to 'Edit', edit_serviceinfo_path(serviceinfo)
-        %td= link_to 'Destroy', serviceinfo, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Serviceinfo', new_serviceinfo_path
+- if @member.serviceinfo != nil
+  = render 'index'
+- else
+  = link_to "Attach new", new_member_serviceinfo_path(@member.id)

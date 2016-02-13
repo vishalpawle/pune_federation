@@ -1,0 +1,11 @@
+- content_for :title, "Serch member | National federation of the blind maharashtra - pune region"
+%h1 member value serching page.
+
+= simple_form_for serchmember_path, method: :put do |f|
+  .form-inputs
+    %div{"role" => "serch"}
+      = label_tag "Serch member"
+      = text_field_tag 'membership_no'
+      .form-action
+        = submit_tag "Serch"
+  = link_to "Back", members_path

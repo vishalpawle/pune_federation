@@ -43,7 +43,7 @@ class MemberPdf < Prawn::Document
   end
 
   def product_rows
-    image open(@member.documentinfo.photo.path)
+    image open(@member.documentinfo.photo.path(:medium))
     table([['Membership Number', 'Receipt Number', 'Membership register date', 'Membership class ', 'Date of admission', 'Branch']] + [[@member.membership_no, @member.receipt_no, @member.membership_register_date, @member.membership_class, @member.date_of_admission, @member.branch]])
     move_down 20
     text "Personal Information:"

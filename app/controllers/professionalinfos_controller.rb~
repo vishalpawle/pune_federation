@@ -14,6 +14,7 @@ class ProfessionalinfosController < ApplicationController
 
   # GET /professionalinfos/new
   def new
+    @member = Member.find(params[:member_id])
     @professionalinfo = Professionalinfo.new
   end
 
@@ -24,11 +25,12 @@ class ProfessionalinfosController < ApplicationController
   # POST /professionalinfos
   # POST /professionalinfos.json
   def create
-    @professionalinfo = Professionalinfo.new(professionalinfo_params)
+    @member = Member.find(params[:member_id])
+    @professionalinfo = @member.build_professionalinfo(professionalinfo_params)
 
     respond_to do |format|
       if @professionalinfo.save
-        format.html { redirect_to @professionalinfo, notice: 'Professionalinfo was successfully created.' }
+        format.html { redirect_to new_member_certificateinfo_path(@professionalinfo.member.id), notice: 'Professionalinfo was successfully created.' }
         format.json { render :show, status: :created, location: @professionalinfo }
       else
         format.html { render :new }

@@ -1,10 +1,13 @@
-if Rails.env.production?
+if Rails.env.development?
   ActionMailer::Base.smtp_settings = {
-    address:              'smtp.gmail.com',
+    address:              'smtp.nfbmpune.org',
     port:                 587,
     domain:               'nfbmpune.org',
-    user_name:            'noreplytonfbmpune@gmail.com',
-    password:             '9881012931',
+    user_name:            'noreply@nfbmpune.org',
+    password:             'CRdLSYb0',
     authentication:       'plain',
-    enable_starttls_auto: true }
+    enable_starttls_auto: false,
+    :openssl_verify_mode  => 'none'
+
+ }
 end

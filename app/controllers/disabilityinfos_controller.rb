@@ -4,7 +4,9 @@ class DisabilityinfosController < ApplicationController
   # GET /disabilityinfos
   # GET /disabilityinfos.json
   def index
-    @disabilityinfos = Disabilityinfo.all
+    @member = Member.find(params[:member_id])
+
+    @disabilityinfos = @member.disabilityinfo
   end
 
   # GET /disabilityinfos/1

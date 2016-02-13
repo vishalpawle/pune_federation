@@ -16,20 +16,19 @@
       %th
 
   %tbody
-    - @certificateinfos.each do |certificateinfo|
-      %tr
-        %td= certificateinfo.do_you_have_blindness
-        %td= certificateinfo.blindness_issued_dr_name
-        %td= certificateinfo.place
-        %td= certificateinfo.certificate_no
-        %td= certificateinfo.certificate_date
-        %td= certificateinfo.percent_blindness_stated
-        %td= certificateinfo.do_you_know_braille
-        %td= certificateinfo.member
-        %td= link_to 'Show', certificateinfo
-        %td= link_to 'Edit', edit_certificateinfo_path(certificateinfo)
-        %td= link_to 'Destroy', certificateinfo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    %tr
+      %td= @certificateinfos.do_you_have_blindness
+      %td= @certificateinfos.blindness_issued_dr_name
+      %td= @certificateinfos.place
+      %td= @certificateinfos.certificate_no
+      %td= @certificateinfos.certificate_date
+      %td= @certificateinfos.percent_blindness_stated
+      %td= @certificateinfos.do_you_know_braille
+      %td= link_to 'Show', @certificateinfos
+      - if current_user.role == 'admin' || current_user.role == 'clerk'
+        %td= link_to 'Edit', edit_certificateinfo_path(@certificateinfos)
+        %td= link_to 'Destroy', @certificateinfos, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New Certificateinfo', new_certificateinfo_path
+- if @member.certificateinfo = nil
+  = link_to 'New Certificateinfo', new_member_certificateinfo_path

@@ -7,6 +7,11 @@
       %div{"aria-labelledby" => "idcard", :role => "radiogroup"}
         = f.input :type_id_proup, :label => " Type of ID proup you are going to submit", :collection => ['PAN Card', 'Aadhar card', 'Driving licen', 'Vorter ID', 'Pastport', 'Other'], as: :radio_buttons
     = f.input :id_no, :input_html => {"aria-required" => "true"}
+    %strong Note:
+    %ul
+      %li Only image files are permited.
+      %li Your photo file should have size 10 kilo bites to 30 kilo bites.
+      %li Your signature file should have size 8 kilo bites to 20 kilo bites.
     %div#upload
       %h3 File and signiture upload
       = f.input :photo, as: :file

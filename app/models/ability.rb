@@ -15,6 +15,12 @@ class Ability
       cannot :suspend, Member
       cannot :adminlevel, Member
       cannot :chengerole, Member
+    elsif user.role == 'superadmin'
+         can :manage, :all
+      cannot :clerklevel, Member
+      cannot :manage, Document
+      cannot :chengerole, Member
+
 
     elsif user.role == 'member'
       can :read, :all

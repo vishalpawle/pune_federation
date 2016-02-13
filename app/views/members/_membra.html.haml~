@@ -29,11 +29,14 @@
                 %td= link_to 'Approve on clerk level and send to admin for verification', new_member_document_path(member)
           - elsif current_user.role == 'admin'
             - if member.clerk_flag == true && member.admin_flag == nil
-              %td= link_to 'Verify / confirm membership', adminlevel_path(member)
+              - if can? :adminlevel, Member
+                %td= link_to 'Verify / confirm membership', adminlevel_path(member)
             - if   member.user != nil
-              %td= link_to "Change role of this member", changerole_path(member.user.id)
+              - if can? :changerole, Member
+                %td= link_to "Change role of this member", changerole_path(member.user.id)
           - if current_user.role == 'admin'
-            %td= link_to "Make defaulter / invalid this member", suspend_path(member)
+            - if can? :suspend, Member
+              %td= link_to "Make defaulter / invalid this member", suspend_path(member)
   - else
     %tr
       - if current_user.member.personalinfo != nil

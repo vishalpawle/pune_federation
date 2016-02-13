@@ -33,7 +33,7 @@ class ForminfosController < ApplicationController
         member = @forminfo.member
         if member.contactinfo.email != nil
           mailholder = member.contactinfo.email
-          UserMailer.wellcomemail(mailholder, member).deliver
+          UserMailer.wellcomemail(mailholder, member).deliver_now
         end
         format.html { redirect_to final_path(@forminfo.member.id), notice: 'Forminfo was successfully created.' }
         format.json { render :show, status: :created, location: @forminfo }

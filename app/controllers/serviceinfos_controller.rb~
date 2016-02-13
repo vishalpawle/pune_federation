@@ -4,7 +4,9 @@ class ServiceinfosController < ApplicationController
   # GET /serviceinfos
   # GET /serviceinfos.json
   def index
-    @serviceinfos = Serviceinfo.all
+    @member = Member.find(params[:member_id])
+
+    @serviceinfos = serviceinfo
   end
 
   # GET /serviceinfos/1
@@ -26,7 +28,7 @@ class ServiceinfosController < ApplicationController
   # POST /serviceinfos.json
   def create
     @member = Member.find(params[:member_id])
-    @serviceinfo = @member.build_serviceinfo.new(serviceinfo_params)
+    @serviceinfo = @member.build_serviceinfo(serviceinfo_params)
 
     respond_to do |format|
       if @serviceinfo.save

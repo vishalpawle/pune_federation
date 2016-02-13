@@ -14,5 +14,9 @@ class Document < ActiveRecord::Base
   validates_attachment :id_proof, :presence => true
   validates_attachment :address_proof, :presence => true
   validates_attachment :date_of_birth_proof, :presence => true
+  validates_attachment_size :disability_certificate, :in => 50.kilobytes..100.kilobytes
+  validates_attachment_size :id_proof, :in => 50.kilobytes..100.kilobytes
+  validates_attachment_size :address_proof, :in => 50.kilobytes..100.kilobytes
+  validates_attachment_size :date_of_birth_proof, :in => 50.kilobytes..100.kilobytes
   belongs_to :member
 end

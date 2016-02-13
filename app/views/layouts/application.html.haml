@@ -26,6 +26,20 @@
           %span.icon-bar
           %span.icon-bar
         %a.navbar-brand(href="#") National federation of the blind maharashtra - pune region
+        - if browser.modern?
+          %strong Your requested browser details: "#{browser.name} #{browser.version} on #{browser.platform}"
+        - else
+          %strong we do not support an old browsers kindly update and enjoy our services.
+        - if browser.ios?
+          %strong Dear I O S User, we are bringing a seperate application for you very soon. Because our design is not Compatible with your platform somewhere. Sorry for inconvenience.
+        - if browser.mobile?
+          %strong Dear mobile user, we are bringing a seperate application for you very soon. Because our design is not Compatible with your platform somewhere. Sorry for inconvenience.
+        - if browser.blackberry?
+          %strong Dear blackberry user, we are bringing a seperate application for you very soon. Because our design is not Compatible with your platform somewhere. Sorry for inconvenience.
+        - if browser.android?
+          %strong Dear android user, we are bringing a seperate application for you very soon. Because our design is not Compatible with your platform somewhere. Sorry for inconvenience.
+        - if browser.chrome? && browser.version <= 14
+          %strong We do not support to old chrome version kindly update your browser atleast 14+.
         #skip
           %a{:href => "#content"} Skip to Main Content
         .navbar-collapse.collapse.navbar-responsive-collapse

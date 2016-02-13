@@ -4,7 +4,8 @@ class CertificateinfosController < ApplicationController
   # GET /certificateinfos
   # GET /certificateinfos.json
   def index
-    @certificateinfos = Certificateinfo.all
+    @member = Member.find(params[:member_id])
+    @certificateinfos = @member.certificateinfo
   end
 
   # GET /certificateinfos/1

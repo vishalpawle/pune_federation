@@ -14,6 +14,8 @@ class MaritalinfosController < ApplicationController
 
   # GET /maritalinfos/new
   def new
+    @member = Member.find(params[:member_id])
+
     @maritalinfo = Maritalinfo.new
   end
 
@@ -24,11 +26,13 @@ class MaritalinfosController < ApplicationController
   # POST /maritalinfos
   # POST /maritalinfos.json
   def create
-    @maritalinfo = Maritalinfo.new(maritalinfo_params)
+    @member = Member.find(params[:member_id])
+
+    @maritalinfo = @member.build_maritalinfo(maritalinfo_params)
 
     respond_to do |format|
       if @maritalinfo.save
-        format.html { redirect_to @maritalinfo, notice: 'Maritalinfo was successfully created.' }
+        format.html { redirect_to new_member_professionalinfo_path(@maritalinfo.member.id), notice: 'Maritalinfo was successfully created.' }
         format.json { render :show, status: :created, location: @maritalinfo }
       else
         format.html { render :new }

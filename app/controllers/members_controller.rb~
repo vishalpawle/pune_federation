@@ -36,7 +36,7 @@ class MembersController < ApplicationController
 
   def clerklevel
     @member = Member.find(params[:member_id])
-    authorize! :tempdelete, @member
+    authorize! :clerklevel, @member
 
     if request.put?
 
@@ -55,6 +55,14 @@ class MembersController < ApplicationController
       else
         format.html { redirect_to members_path, notice: 'unaible to save please try again!' }
       end
+      end
+    end
+  end
+  def serchmember
+    if request.put? && params != nil
+      @member = Member.where(:membership_no => params[:membership_no])
+      @member.each do |m|
+        redirect_to member_path(m.id)
       end
     end
   end
@@ -83,16 +91,18 @@ p session[:memberid]
   end
   def adminlevel
     @member = Member.find(params[:member_id])
+    authorize! :adminlevel, @member
+
     if request.put?
       respond_to do |format|
       @member.admin_flag = true
       if @member.save
-        if @member.contactinfo.email != nil
+        if @member.contactinfo.email != ''
           member = @member
           mailwalababa= @member.contactinfo.email
           UserMailer.adminlevel(mailwalababa, member).deliver_now
         end
-        format.html { redirect_to members_path, notice: 'Request processed successfully now #{@member.personalinfo.last_name.capitalize + ' ' + @member.first_name.capitalize + ' ' + @member.personalinfo.middle_name.capitalize} (#{@member.membership_no}) is became confirm member with your organisation!' }
+        format.html { redirect_to members_path, notice: member.membership_no + ' is became confirm member with your organisatio=n!' }
       else
         format.html { redirect_to adminlevel_path(@member.id), notice: 'unaible to process request please try again!' }
       end
@@ -104,10 +114,10 @@ p session[:memberid]
   end
   def show
     @member = Member.find(params[:id])
+    authorize! :read, @member
     respond_to do |format|
       format.html
       format.xml { render :xml => @member }
-      #format.msword { set_header('msword', "#{@member.membership_no}.doc") }
 
       format.pdf do
         pdf = MemberPdf.new(@member)
@@ -122,6 +132,7 @@ p session[:memberid]
   end
   def changerole
     @user = User.find(params[:user_id])
+    authorize! :changerole, @user
     if request.put?
       respond_to do |format|
       @user.role = params[:role]
@@ -137,6 +148,7 @@ p session[:memberid]
   end
   def suspend
     @member = Member.find(params[:member_id])
+    authorize! :suspend, @member
     if request.put?
       respond_to do |format|
       @member.suspend = true

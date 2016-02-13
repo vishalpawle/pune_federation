@@ -1,3 +1,7 @@
+- content_for :title, "Upload documents | National federation of the blind maharashtra - pune region"
+%b Note: all files should have size 50 KB to 100 KB. If your files are not following this size, then kindly resize files, and upload it.
+%br
+%b If 
 %h1 Upload documents.
 %div{"role" => "form"}
 

@@ -1,0 +1,37 @@
+%h1 Listing serviceinfos
+
+%table
+  %thead
+    %tr
+      %th Member braille books circulating library
+      %th Self employment aid
+      %th Scholarship student aid scheme
+      %th Member of braille jagriti magazine
+      %th Placement services
+      %th Medical aid
+      %th Counselling services
+      %th Any others
+      %th Member
+      %th
+      %th
+      %th
+
+  %tbody
+    %tr
+      %td= @serviceinfos.member_braille_books_circulating_library
+      %td= @serviceinfos.self_employment_aid
+      %td= @serviceinfos.scholarship_student_aid_scheme
+      %td= @serviceinfos.member_of_braille_jagriti_magazine
+      %td= @serviceinfos.placement_services
+      %td= @serviceinfos.medical_aid
+      %td= @serviceinfos.counselling_services
+      %td= @serviceinfos.any_others
+      %td= link_to 'Show', @serviceinfos
+      - if current_user.role == 'admin' || current_user.role == 'clerk'
+        %td= link_to 'Edit', edit_serviceinfo_path(@serviceinfos)
+        %td= link_to 'Destroy', @serviceinfos, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+- if @member.serviceinfo = nil
+  = link_to 'New Serviceinfo', new_member_serviceinfo_path(@member)

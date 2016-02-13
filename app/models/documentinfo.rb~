@@ -7,6 +7,4 @@ validates_attachment_content_type :signature, :content_type => /\Aimage\/.*\Z/
   validates_attachment :photo, :presence => true #:content_type =># { :content_type => ['image/jpg', 'image/png', 'image/jpeg']}
   validates_attachment :signature, :presence => true #:content_type => { :content_type => ['image/jpg', 'image/png', 'image/jpeg']}
   validates :type_id_proup, :id_no, :presence => true
-  validates_attachment_size :signature, :in => 8.kilobytes..20.kilobytes
-  validates_attachment_size :photo, :in => 10.kilobytes..30.kilobytes
 end

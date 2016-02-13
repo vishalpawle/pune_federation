@@ -95,9 +95,9 @@ class MemberPdf < Prawn::Document
 #    table([['Member braille books circulating library', 'Self employment aid', 'Scholarship student aid scheme', 'Member of braille jagriti magazine', 'Placement services', 'Medical aid', 'Counselling services', 'Any others']] + [[@member.member_braille_books_circulating_library, @member.self_employment_aid, @member.scholarship_student_aid_scheme, @member.member_of_braille_jagriti_magazine, @member.placement_services, @member.medical_aid, @member.counselling_services, @member.any_others]])
     move_down 20
     text "Type of ID card you are going to submit:"
-    text "#{@member.documentinfo.type_id_proup"}
+    text "#{@member.documentinfo.type_id_proup}"
     text "ID Number:"
-    text "#{@member.documentinfo.id_no"}
+    text "#{@member.documentinfo.id_no}"
     move_down 20
 text "I pledge to participate actively I support the objectives & core values of the NFBM, & I shall abide to constitution of the NFBM."
     text "I also declare, the above information is true & correct to my knowledge & Belief."

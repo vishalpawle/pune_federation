@@ -6,7 +6,9 @@ class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.json
   def index
-    @documents = Document.all
+    @member = Member.find(params[:member_id])
+
+    @documents = @member.document
   end
 
   # GET /documents/1

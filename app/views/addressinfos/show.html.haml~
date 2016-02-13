@@ -25,5 +25,6 @@
   %b Member:
   = @addressinfo.member
 
+= link_to 'Edit', edit_addressinfo_path(@addressinfo)
 \|
 = link_to 'Back to member page', members_path

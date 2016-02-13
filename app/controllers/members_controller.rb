@@ -58,6 +58,14 @@ class MembersController < ApplicationController
       end
     end
   end
+  def serchmember
+    if request.put? && params != nil
+      @member = Member.where(:membership_no => params[:membership_no])
+      @member.each do |m|
+        redirect_to member_path(m.id)
+      end
+    end
+  end
   def status
 
     if request.put? && params != nil
@@ -89,12 +97,12 @@ p session[:memberid]
       respond_to do |format|
       @member.admin_flag = true
       if @member.save
-        if @member.contactinfo.email != nil
+        if @member.contactinfo.email != ''
           member = @member
           mailwalababa= @member.contactinfo.email
           UserMailer.adminlevel(mailwalababa, member).deliver_now
         end
-        format.html { redirect_to members_path, notice: 'Request processed successfully now #{@member.personalinfo.last_name.capitalize + ' ' + @member.first_name.capitalize + ' ' + @member.personalinfo.middle_name.capitalize} (#{@member.membership_no}) is became confirm member with your organisation!' }
+        format.html { redirect_to members_path, notice: 'This member is became confirm member with your organisation!' }
       else
         format.html { redirect_to adminlevel_path(@member.id), notice: 'unaible to process request please try again!' }
       end
@@ -110,7 +118,6 @@ p session[:memberid]
     respond_to do |format|
       format.html
       format.xml { render :xml => @member }
-      #format.msword { set_header('msword', "#{@member.membership_no}.doc") }
 
       format.pdf do
         pdf = MemberPdf.new(@member)

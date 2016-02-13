@@ -4,7 +4,9 @@ class ProfessionalinfosController < ApplicationController
   # GET /professionalinfos
   # GET /professionalinfos.json
   def index
-    @professionalinfos = Professionalinfo.all
+    @member = Member.find(params[:member_id])
+
+    @professionalinfos = @member.professionalinfo
   end
 
   # GET /professionalinfos/1

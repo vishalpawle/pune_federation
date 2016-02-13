@@ -1,0 +1,2 @@
+- if @member.serviceinfo != nil
+  = render 'index'

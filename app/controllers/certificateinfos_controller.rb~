@@ -14,6 +14,7 @@ class CertificateinfosController < ApplicationController
 
   # GET /certificateinfos/new
   def new
+    @member = Member.find(params[:member_id])
     @certificateinfo = Certificateinfo.new
   end
 
@@ -24,11 +25,12 @@ class CertificateinfosController < ApplicationController
   # POST /certificateinfos
   # POST /certificateinfos.json
   def create
-    @certificateinfo = Certificateinfo.new(certificateinfo_params)
+    @member = Member.find(params[:member_id])
+    @certificateinfo = @member.build_certificateinfo(certificateinfo_params)
 
     respond_to do |format|
       if @certificateinfo.save
-        format.html { redirect_to @certificateinfo, notice: 'Certificateinfo was successfully created.' }
+        format.html { redirect_to new_member_serviceinfo_path(@certificateinfo.member.id), notice: 'Certificateinfo was successfully created.' }
         format.json { render :show, status: :created, location: @certificateinfo }
       else
         format.html { render :new }

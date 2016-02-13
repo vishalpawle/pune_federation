@@ -19,7 +19,10 @@ class Ability
     elsif user.role == 'member'
       can :read, :all
       can :create, Scriberequest
+      can :create, Member
        else
+      can :create, Member
+
          can :read, :all
        end
     #

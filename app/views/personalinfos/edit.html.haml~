@@ -1,0 +1,7 @@
+%h1 Editing personalinfo
+
+= render 'form'
+
+= link_to 'Show', @personalinfo
+\|
+= link_to 'Back', personalinfos_path

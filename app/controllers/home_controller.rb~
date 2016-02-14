@@ -1,6 +1,9 @@
 class HomeController < ApplicationController
   def index
 tirmcontent
+    @activity = Activity.last(5)
+    @team = Team.where(:category => 'Officer')
+
   end
   def tirmcontent
     @user = User.where(:tirm_flag => true)

@@ -1,6 +1,5 @@
 class DonationsController < ApplicationController
 #  before_action :set_donation, eccept: [:create ]
-  load_and_authorize_resource :eccept => :new
 
 
   # GET /donations

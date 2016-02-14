@@ -61,7 +61,10 @@ class DonationsController < ApplicationController
   # DELETE /donations/1
   # DELETE /donations/1.json
   def destroy
-    @donation.destroy
+    @donation = Donation.find(params[:id])
+    if @donation != nil
+      @donation.destroy
+    end
     respond_to do |format|
       format.html { redirect_to donations_url, notice: 'Donation was successfully destroyed.' }
       format.json { head :no_content }

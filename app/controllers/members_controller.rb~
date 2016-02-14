@@ -102,7 +102,7 @@ p session[:memberid]
           mailwalababa= @member.contactinfo.email
           UserMailer.adminlevel(mailwalababa, member).deliver_now
         end
-        format.html { redirect_to members_path, notice: member.membership_no + ' is became confirm member with your organisatio=n!' }
+        format.html { redirect_to members_path, notice: 'This member is became confirm member with your organisation!' }
       else
         format.html { redirect_to adminlevel_path(@member.id), notice: 'unaible to process request please try again!' }
       end

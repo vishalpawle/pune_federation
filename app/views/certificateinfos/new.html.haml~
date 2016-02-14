@@ -1,3 +1,4 @@
+- content_for :title, "Disability cirtificate details | National federation of the blind maharashtra - pune region"
 %h1 Disability certificate details:
 %br
 %div{"role" => "form"}

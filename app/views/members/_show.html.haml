@@ -278,11 +278,15 @@ E-mail:
 %br
 %a{:href => "#", :onclick => "window.print();return false;"} print me
 - if current_user.role == 'clerk' || current_user.role == 'admin' || current_user.role == 'superadmin'
-  - if @member.document != nil
-    = link_to "Download date of birth proof", @member.document.date_of_birth_proof.url(:original, false)
-    = link_to "Disability proof download", @member.document.disability_certificate.url(:original, false)
-    = link_to "ID proof download", @member.document.id_proof.url(:original, false)
-    = link_to "Address proof download", @member.document.address_proof.url(:original, false)
+  %ul
+    - if @member.document != nil
+      %li= link_to "Download date of birth proof", @member.document.date_of_birth_proof.url(:original, false)
+      %li= link_to "Disability proof download", @member.document.disability_certificate.url(:original, false)
+      %li= link_to "ID proof download", @member.document.id_proof.url(:original, false)
+      %li= link_to "Address proof download", @member.document.address_proof.url(:original, false)
+    %li= link_to "Edit / change personal details", edit_personalinfo_path(@member.personalinfo.id)
+    %li= link_to "Edit / change address info", edit_addressinfo_path(@member.addressinfo.id)
+    %li= link_to "Edit / change contact info", edit_contactinfo_path(@member.contactinfo.id)
 = link_to "Back", members_path
 %br
 

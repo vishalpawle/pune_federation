@@ -1,3 +1,4 @@
+- content_for :title, "Address information | National federation of the blind maharashtra - pune region"
 %h1  address infomation:
 %br
 %div{"role" => "form"}

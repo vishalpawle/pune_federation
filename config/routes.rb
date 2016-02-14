@@ -26,6 +26,8 @@ resources :members, :shallow => true  do
 match '/:member_id/final' => 'members#final', :via => :get,  as: :final
   match '/status' => 'members#status', :via => [:get, :put], as: :status
   match '/serchmember' => 'members#serchmember', :via => [:get, :put], as: :serchmember
+  match '/:member_id/page' => 'home#page', :via => :get, as: :page
+
 
   match '/laststape' => 'members#laststape', :via =>[:get, :put], as: :laststape
 

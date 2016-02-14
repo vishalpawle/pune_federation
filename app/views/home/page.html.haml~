@@ -1,0 +1,13 @@
+- content_for :title, " left pages | National federation of the blind maharashtra - pune region"
+%h1 Pages leave by you:
+%p
+  Dear user, you left following pages of membership form. You must complete it otherwise your membership application will not accept by NFBM team.
+  %br
+  Your pages are:
+%ol
+  - if @member.personalinfo == nil
+    %li= link_to "Personal information page", new_member_personalinfo_path(@member.id)
+  - if @member.addressinfo == nil
+    %li= link_to "Address information page", new_member_addressinfo_path(@member.id)
+  - if @member.contactinfo == nil
+    %li= link_to "Contact information page", new_member_contactinfo_path(@member.id)

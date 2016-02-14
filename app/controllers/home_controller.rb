@@ -27,5 +27,7 @@ tirmcontent
       format.js
     end
   end
-
+  def page
+    @member = Member.find(params[:member_id])
+  end
 end

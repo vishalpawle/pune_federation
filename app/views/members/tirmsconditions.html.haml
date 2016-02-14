@@ -1,7 +1,9 @@
 - content_for :title, "Tirms and conditions | National federation of the blind maharashtra - pune region"
-
-This facility will start from on or after 20th Feb onwords.
-%br
-Sorry for inconvenience.
-%br
-= link_to "Home", root_path
+- if Time.now.to_date.to_s == '20/02/2016'
+  = render 'tirms'
+- else
+  This facility will start from on or after 20th Feb onwords.
+  %br
+  Sorry for inconvenience.
+  %br
+  = link_to "Home", root_path

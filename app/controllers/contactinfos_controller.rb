@@ -45,7 +45,7 @@ class ContactinfosController < ApplicationController
   def update
     respond_to do |format|
       if @contactinfo.update(contactinfo_params)
-        format.html { redirect_to @contactinfo, notice: 'Contactinfo was successfully updated.' }
+        format.html { redirect_to member_path(@contactinfo.member.id), notice: 'Contactinfo was successfully updated.' }
         format.json { render :show, status: :ok, location: @contactinfo }
       else
         format.html { render :edit }

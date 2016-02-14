@@ -4,4 +4,4 @@
 
 = link_to 'Show', @addressinfo
 \|
-= link_to 'Back', addressinfos_path
+= link_to 'Back', members_path

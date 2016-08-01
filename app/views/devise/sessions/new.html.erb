@@ -1,16 +1,35 @@
 <%- content_for :title, "Log in | National federation of the blind maharashtra - pune region" %>
-<h2>Log in</h2>
+<div class="row">
+<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :username, :label => "Membership number", required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+	<%= simple_form_for(resource, as: resource_name, :html => {:class => 'reg-page'}, url: session_path(resource_name)) do |f| %>
+		<div class="reg-header">
+            <h2>Login to your account</h2>
+	    </div>
+		<div class="input-group margin-bottom-20">
+			<span class="input-group-addon"><i class="fa fa-user"></i></span>
+		    <%= f.input :username, :class => "form-control", label: false, :placeholder => "Membership number", required: false, autofocus: true %>
+	    </div>
+		<div class="input-group margin-bottom-20">
+			<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+		    <%= f.input :password, :class => "form-control", label: false, :placeholder => "Password", required: false %>
+		</div>
+        <div class="row">
+            <div class="col-md-6 checkbox">
+                <label>
+	                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                </label>
+            </div>
+            <div class="col-md-6">
+		 		<%= f.button :submit, "Login" ,:class => "btn-u pull-right rounded" %>
+            </div>
+        </div>
+        <hr>
+        <h4>Forget your Password ?</h4>
+        <p>no worries, <%= link_to "click here", new_password_path(resource_name),:class => "color-green" %> to reset your password.</p>
+		<%= render "devise/shared/links" %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+	<% end %>
 
-<%= render "devise/shared/links" %>
+</div>
+</div>

@@ -8,79 +8,177 @@
     = display_meta_tags
     = csrf_meta_tags
     = stylesheet_link_tag "application", :media => "all"
+
     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
     = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
-    = javascript_include_tag "application"
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"
 
 
-  %body
-    .navbar.navbar-default.navbar-static-top
-      .container
-        %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        %a.navbar-brand(href="#") National Federation Of The Blind Maharashtra - Pune Region
-        #skip
-          %a{:href => "#content"} Skip to Main Content
-        .navbar-collapse.collapse.navbar-responsive-collapse
-        %div#navigation{"role" => "navigation"}
 
-          %ul.nav.navbar-nav
-            %li= link_to "Home", root_path
-            - if user_signed_in?
-              %li= link_to "Membership", members_path
-              %li= link_to 'sign out', destroy_user_session_path, :method => :delete
-            - else
-              %li= link_to "Take online membership", tirmsconditions_path
-              %li= link_to "Know your membership status", status_path
-              %li= link_to "Login", new_user_session_path
-            - if user_signed_in?
-              - if  current_user.role == 'admin'
-                %li= link_to 'New Activity', new_activity_path
-                %li= link_to "Registered scribes", scribes_path
-                %li= link_to "Donation requests", donations_path
-                %li= link_to "Messages by guest", messages_path
-            - else
-              %li= link_to "Latest  activities", activities_path
-            %li= link_to "View our anual activities", anulshow_path
-            - if user_signed_in?
-              %li= link_to 'Scribe / writers', scriberequests_path
-            - else
-              %li= link_to "Scribe / writers", scriberequests_path,  :data => { :confirm => 'You need login Credentials to access this page!' }
-            %li= link_to "Our team", teams_path
-            %li= link_to "Employment", jobs_path
-            %li= link_to "Notifications by NFBM"
-            %li= link_to "Donate us", new_donation_path
-            %li= link_to " Become a scribe / volunteer with us!", new_scribe_path
+  %body.header-fixed
+    .wrapper
+      .header-v4.header-sticky
+        .topbar-v1
+          .container
+            .row
+              .col-md-4
+                %ul.list-inline.top-v1-contacts
+                  %li
+                    %i.fa.fa-envelope
+                    = " "
+                    %a(href="mailto:nfbmpune15@gmail.com") nfbmpune15@gmail.com
+                  %li
+                    %i.fa.fa-phone
+                    = " "
+                    %a(href="tel:02024445494") 020-24445494
+              .col-md-8
+                %ul.list-inline.top-v1-data
+                  / %li
+                  /   %a(href="#")
+                  /     %i.fa.fa-home
+                  / %li
+                  /   %a(href="#")
+                  /     %i.fa.fa-globe
+                  / %li
+                  /   %a(href="#")
+                  /     %i.fa.fa-shopping-cart
+                  / %li
+                  /   %a(href="#") Quicklinks
+                  / %li
+                  /   %a(href="#") My Account
+                  - if user_signed_in?
+                    %li.active= link_to 'Scribe / writers', scriberequests_path
+                  - else
+                    %li.active= link_to "Scribe / writers", scriberequests_path,  :data => { :confirm => 'You need login Credentials to access this page!' }
+                  - if user_signed_in?
+                    - if  current_user.role == 'admin'
+                      %li= link_to 'New Activity', new_activity_path
+                      %li.active= link_to "Registered scribes", scribes_path
+                      %li= link_to "Donation requests", donations_path
+                      %li= link_to "Messages by guest", messages_path
+                  - else
+                    %li= link_to "Latest  activities", activities_path
+                  - if user_signed_in?
+                    %li= link_to "Membership", members_path
+                    %li= link_to 'sign out', destroy_user_session_path, :method => :delete
+                  - else
+                    %li= link_to "Know your membership status", status_path
+                    %li= link_to "Take online membership", tirmsconditions_path
+                    %li= link_to "Login", new_user_session_path
+
+        .navbar.navbar-default.mega-menu(role="navigation")
+          .container
+            / Brand and toggle get grouped for better mobile display
+            .navbar-header
+              .row
+                .col-md-2
+                  %a.navbar-brand(href="#")
+                    = image_tag("logo.jpg", :alt => "logo", :id => "logo-header",)
+                .col-md-10
+                  %a(href="#")
+                    / %img(class="header-banner img-responsive" src="assets/img/banners/adds.jpg" width="1000" alt="")  National Federation Of The Blind Maharashtra - Pune Region
+                    %h1 National Federation Of The Blind Maharashtra - Pune Region
+
+              %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+                %span.full-width-menu Menu Bar
+                %span.icon-toggle
+                  %span.icon-bar
+                  %span.icon-bar
+                  %span.icon-bar
+                / %span.sr-only Toggle navigation
+                / %span.fa.fa-bars
+
+            / End Toggle
+          / end container
+          .clearfix
+
+
+          .collapse.navbar-collapse.navbar-responsive-collapse
+            .container
+              .nav.navbar-nav
+                %li{:class => current_class?(root_path)}= link_to "Home", root_path
+                / %li{:class => current_class?(anulshow_path)}= link_to "View our anual activities", anulshow_path
+                %li{:class => current_class?(anulshow_path)}= link_to "anual activities", anulshow_path
+                %li{:class => current_class?(teams_path)}= link_to "Our team", teams_path
+                %li{:class => current_class?(jobs_path)}= link_to "Employment", jobs_path
+                / %li= link_to "Notifications by NFBM" ,"#"
+                %li{:class => current_class?(new_donation_path)}= link_to "Donate us", new_donation_path
+                / %li{:class => current_class?(new_scribe_path)}= link_to " Become a scribe / volunteer with us!", new_scribe_path
+                %li{:class => current_class?(new_scribe_path)}= link_to " Become a scribe/volunteer!", new_scribe_path
 
 
 
 
     .container
       .row
-        .col-lg-9
+        .col-lg-9.col-md-9.content.content-sm
           = bootstrap_flash
-        %main#content{"role" => "main"}
+          %main#content{"role" => "main"}
           = yield
-        .col-lg-3
-          .well.sidebar-nav
+        .col-lg-3.col-md-3.content.content-sm
           %div{"role" => "navigation"}
+            %ul#sidebar-nav.list-group.sidebar-nav-v1
+              %li.list-group-item.list-toggle
+                %a(data-toggle="collapse" data-parent="#sidebar-nav" href="#collapse-navmain") Navigation
+                %ul#collapse-navmain.collapse.in
+                  - if user_signed_in?
+                    %li{:class => current_class?(circulars_path)}
+                      = link_to "Circulars", circulars_path
+                  - else
+                    %li{:class => current_class?(circulars_path)}
+                      = link_to "Circulars", circulars_path, :data => { :confirm => 'You need login Credentials to access this page!' }
+                  %li{:class => current_class?(about_path)}
+                    = link_to "About Us", about_path
+                  / %li{:class => current_class?()}
+                  /   = link_to content_tag(:i, " About Us", :class => "fa fa-ellipsis-h"), about_path
+                  %li{:class => current_class?(dream_path)}
+                    = link_to "Future Dreams", dream_path
+                  %li{:class => current_class?(new_message_path)}
+                    = link_to "Contact Us", new_message_path
 
-            %ul.nav.nav-list
-              %li.nav-header
-              - if user_signed_in?
-                %li= link_to "Circulars", circulars_path
-              - else
-                %li= link_to "Circulars", circulars_path, :data => { :confirm => 'You need login Credentials to access this page!' }
-              %li= link_to "About Us", about_path
-              %li= link_to "Future Dreams", dream_path
-              %li= link_to "Contact Us", new_message_path
-      %footer
-        %p &copy NFBM Pune #{Date.today.year}
+
+
+    #footer-v1.footer-v1
+      .copyright
+        .container
+          .row
+            .col-md-6
+              / %p 2015 &copy; All Rights Reserved.
+              %p &copy NFBM Pune #{Date.today.year}.
+
+            / Social Links
+            .col-md-6
+              %ul.footer-socials.list-inline
+                %li
+                  %a(href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook")
+                    %i.fa.fa-facebook
+
+                %li
+                  %a(href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Skype")
+                    %i.fa.fa-skype
+
+                %li
+                  %a(href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus")
+                    %i.fa.fa-google-plus
+                %li
+                  %a(href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin")
+                    %i.fa.fa-linkedin
+                %li
+                  %a(href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest")
+                    %i.fa.fa-pinterest
+                %li
+                  %a(href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter")
+                    %i.fa.fa-twitter
+                %li
+                  %a(href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Dribbble")
+                    %i.fa.fa-dribbble
+            / End Social Links
+        / end copyright
+    /=== End Footer v1 ===
+
+  = javascript_include_tag "application"

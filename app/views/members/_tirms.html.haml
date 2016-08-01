@@ -16,7 +16,8 @@
   %li Please do not fully rely on our SMS service because it is under testing process. Their for, kindly provide your e-mail ID in email block. So, you will not miss any activity cunducted by NFBM pune.
   %li You are able to take benefit all facilities of " NFBM Pune ", after confirmming your account by admin team.
 %br
-- if @user != nil
+/ - if @user != nil
+- if @user == nil
   = button_to "I agree", new_member_path, :class => "button", :method => :get
 \|
 = button_to "I disagree", root_path, :class => "button", :method => :get

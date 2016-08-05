@@ -66,13 +66,15 @@ E-mail:
   %table.table
     %tbody
       %th Address:
+      %th
       %th Village / area
       %th Taluka
       %th City
       %th Pin
       %th State
     %tr
-      %td= @member.addressinfo.address_1 + ' ' + @member.addressinfo.address_2
+      %td= @member.addressinfo.address_1
+      %td=   @member.addressinfo.address_2
       %td= @member.addressinfo.village
       %td= @member.addressinfo.taluka
       %td= @member.addressinfo.city

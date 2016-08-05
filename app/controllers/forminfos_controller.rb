@@ -33,7 +33,7 @@ class ForminfosController < ApplicationController
     respond_to do |format|
       if @forminfo.save
         member = @forminfo.member
-        if member.contactinfo.email != nil
+        if member.contactinfo.email != ''
           mailholder = member.contactinfo.email
           UserMailer.wellcomemail(mailholder, member).deliver_now
         end

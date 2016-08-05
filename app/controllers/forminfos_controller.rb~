@@ -4,7 +4,9 @@ class ForminfosController < ApplicationController
   # GET /forminfos
   # GET /forminfos.json
   def index
-    @forminfos = Forminfo.all
+    @member = Member.find(params[:member_id])
+
+    @forminfos = @member.forminfo
   end
 
   # GET /forminfos/1

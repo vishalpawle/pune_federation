@@ -286,6 +286,7 @@ E-mail:
       %li= link_to "Address proof download", @member.document.address_proof.url(:original, false)
     %li= link_to "Edit / change personal details", edit_personalinfo_path(@member.personalinfo.id)
     %li= link_to "Edit / change address info", edit_addressinfo_path(@member.addressinfo.id)
+    %li= link_to "Edit / change contact info", edit_contactinfo_path(@member.contactinfo.id)
 = link_to "Back", members_path
 %br
 

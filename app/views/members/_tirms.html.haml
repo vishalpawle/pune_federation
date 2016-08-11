@@ -18,6 +18,8 @@
 %br
 / - if @user != nil
 - if @user == nil
+  %b I agree
+- else
   = button_to "I agree", new_member_path, :class => "button", :method => :get
 \|
 = button_to "I disagree", root_path, :class => "button", :method => :get

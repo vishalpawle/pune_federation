@@ -47,4 +47,6 @@
       %td= current_user.member.membership_no
       %td= current_user.member.membership_class
       %td= link_to 'View full membership details', current_user.member
-
+%br
+- if user_signed_in? && current_user.role == 'clerk'
+  = link_to "Make new registration", tirmsconditions_path

@@ -32,6 +32,11 @@ class ForminfosController < ApplicationController
 
     respond_to do |format|
       if @forminfo.save
+        if @forminfo.old_member = true
+          m = @forminfo.member
+          m.clerk_flag = true
+          m.save
+        end
         member = @forminfo.member
         if member.contactinfo.email != ''
           mailholder = member.contactinfo.email
@@ -78,6 +83,6 @@ class ForminfosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def forminfo_params
-      params.require(:forminfo).permit(:introduces_by, :member_submited_form_date, :f_place, :form_details, :member_id)
+      params.require(:forminfo).permit(:introduces_by, :member_submited_form_date, :f_place, :form_details, :old_member,  :member_id)
     end
 end

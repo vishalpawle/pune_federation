@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201153508) do
+ActiveRecord::Schema.define(version: 20160811140509) do
 
   create_table "activities", force: :cascade do |t|
     t.text     "anual_activity",        limit: 65535
@@ -199,6 +199,7 @@ ActiveRecord::Schema.define(version: 20160201153508) do
     t.integer  "member_id",                 limit: 4
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.boolean  "old_member"
   end
 
   add_index "forminfos", ["member_id"], name: "index_forminfos_on_member_id", using: :btree

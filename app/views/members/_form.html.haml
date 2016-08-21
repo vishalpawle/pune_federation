@@ -13,6 +13,8 @@
       %i * I hereby apply for LIFE /COMPANY / HONORARY membership, I shall abide by the rules and regulations of the Federation (NBFM).
 
     = f.input :terms_agree, :label => "I agree"
+    - if user_signed_in? && current_user.role == 'clerk'
+      = f.input :old_member, :label => "This is the old / current member of NFBM"
 
   .form-action
     = f.submit "Next"
@@ -50,3 +52,4 @@
   }
   return true;
   }
+

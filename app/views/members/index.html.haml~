@@ -1,4 +1,6 @@
+- content_for :title, "Member main page | National federation of the blind maharashtra - pune region"
 - if user_signed_in?
+  = paginate @members
   = render 'membra'
 - else
   %b Without logined, this page will not display.

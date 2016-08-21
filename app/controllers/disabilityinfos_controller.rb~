@@ -4,7 +4,9 @@ class DisabilityinfosController < ApplicationController
   # GET /disabilityinfos
   # GET /disabilityinfos.json
   def index
-    @disabilityinfos = Disabilityinfo.all
+    @member = Member.find(params[:member_id])
+
+    @disabilityinfos = @member.disabilityinfo
   end
 
   # GET /disabilityinfos/1
@@ -30,7 +32,15 @@ class DisabilityinfosController < ApplicationController
 
     respond_to do |format|
       if @disabilityinfo.save
-        format.html { redirect_to new_member_maritalinfo_path(@disabilityinfo.member.id), notice: 'Disabilityinfo was successfully created.' }
+        memb = @disabilityinfo.member
+p 'memb is,'
+p memb.old_member
+        if memb.old_member = true
+          format.html { redirect_to new_member_forminfo_path(@disabilityinfo.member.id), notice: 'Provided data saved' }
+        else
+
+          format.html { redirect_to new_member_maritalinfo_path(@disabilityinfo.member.id), notice: 'Disabilityinfo was successfully created.' }
+        end
         format.json { render :show, status: :created, location: @disabilityinfo }
       else
         format.html { render :new }

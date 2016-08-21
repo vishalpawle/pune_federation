@@ -1,4 +1,6 @@
 - if current_user.role == 'admin' || current_user.role == 'clerk' || current_user.role == 'superadmin'
+  = paginate @members
+
   = link_to "Serch member by membership number", serchmember_path
 %h1 Members main page
 %table

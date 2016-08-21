@@ -15,6 +15,7 @@ gem 'simple_form'
 gem 'haml'
 gem 'haml-rails'
 gem "nested_form"
+gem 'kaminari'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'htmltoword'
 gem 'meta-tags'

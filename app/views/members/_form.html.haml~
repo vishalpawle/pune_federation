@@ -5,7 +5,7 @@
     = f.input :membership_register_date, as: :string, input_html:  {type: :date,  :value => Time.now.to_date.to_s, order:  [:day, :month, :year], "aria-required" => "true"}
     = f.input :membership_class, :collection => ['LIFE', 'COMPANY', 'HONORARY'], :prompt => 'Please select membership class', "aria-required" => "true"
     = f.input :date_of_admission, as: :string, input_html:  {type: :date,  :value => Time.now.to_date.to_s, order:  [:day, :month, :year]}
-    = f.input :branch, :input_html => {"aria-required" => "true"}
+    = f.input :branch, :input_html => {"aria-required" => "true", :value => "Pune"}
     %div{"role" => "complementary"}
       %br
       %i *stared is mandatory,    tick where applicable, ‘NBFM’ stands for the ‘National Federation of the Blind, Maharashtra.’
@@ -13,6 +13,8 @@
       %i * I hereby apply for LIFE /COMPANY / HONORARY membership, I shall abide by the rules and regulations of the Federation (NBFM).
 
     = f.input :terms_agree, :label => "I agree"
+    - if user_signed_in? && current_user.role == 'clerk'
+      = f.input :old_member, :label => "This is the old / current member of NFBM"
 
   .form-action
     = f.submit "Next"
@@ -49,4 +51,7 @@
   return false;
   }
   return true;
+  }
+  if ( =document.getElementById('member_old_member').checked ) {
+  alert("Hello");
   }
